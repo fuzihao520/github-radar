@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 飙升雷达 · 数据大屏 - 广告人之家</title>
+<style>
+:root{
+  --bg:#f6f6fb; --card:#ffffff; --brand:#6a5cff; --accent:#e2622b;
+  --fg:#1b1b23; --muted:#6b6b7b; --border:rgba(20,20,40,.09);
+  --ok:#12b886; --warn:#f59f00; --danger:#fa5252;
+  --shadow:0 1px 2px rgba(24,24,48,.05),0 8px 24px rgba(24,24,48,.06);
+  --radius:18px; --radius-sm:12px;
+  --font:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",ui-monospace,Consolas,"Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1560px;margin:0 auto;padding:0 18px}
+
+/* ============ 顶栏 ============ */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:auto;min-height:60px;flex-wrap:wrap;padding:8px 0}
+.logo{display:flex;align-items:center;gap:9px;font-weight:900}
+.logo .dot{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:12px;letter-spacing:.5px}
+.brand-title{font-size:15px;font-weight:900;line-height:1.2}
+.brand-sub{font-size:11.5px;color:var(--muted);font-weight:600}
+.topnav{display:flex;gap:3px;margin-left:6px}
+.topnav a{padding:6px 13px;border-radius:999px;font-size:13px;color:var(--muted);font-weight:700}
+.topnav a:hover{background:#fff;color:var(--fg)}
+.topnav a.active{background:var(--brand);color:#fff}
+.status{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;flex-wrap:wrap;min-width:0}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-weight:700}
+.pill-ok{background:#e8f7f1;color:var(--ok)}
+.pill-muted{background:#eef0f6;color:var(--muted)}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ============ 标题区 ============ */
+.hero{padding:22px 0 10px}
+.hero .en{color:var(--muted);font-weight:800;font-size:11.5px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-size:24px;font-weight:900;letter-spacing:-.5px}
+.hero p{font-size:12.5px;color:var(--muted);margin-top:3px;max-width:900px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;box-shadow:var(--shadow)}
+.chip b{font-variant-numeric:tabular-nums}
+.toggle{cursor:pointer;user-select:none}
+.toggle.on{border-color:rgba(106,92,255,.45);color:var(--brand)}
+.toggle .track{width:34px;height:20px;border-radius:999px;background:#dcdce6;position:relative;transition:.2s;flex-shrink:0}
+.toggle .track::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle.on .track{background:var(--brand);box-shadow:0 0 0 3px rgba(106,92,255,.16)}
+.toggle.on .track::after{transform:translateX(14px)}
+
+/* ============ 数据来源提示 ============ */
+.freshness{display:none;align-items:flex-start;gap:9px;margin-top:12px;padding:9px 13px;border-radius:12px;font-size:12px;line-height:1.6;background:#fff8e6;border:1px solid rgba(245,159,0,.3);color:#7a5a00}
+.freshness.show{display:flex}
+.freshness .ico{flex-shrink:0;font-weight:900}
+.freshness.ok{background:#eefaf5;border-color:rgba(18,184,134,.28);color:#0a6b51}
+.freshness b{font-weight:900}
+
+/* ============ 模块骨架 ============ */
+.mod{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow);margin-bottom:14px}
+.mod-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;min-width:0}
+.mod-head h3{font-size:14.5px;font-weight:900;white-space:nowrap;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.mod-head .hint{margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;white-space:nowrap;flex:0 0 auto;text-align:right}
+.mod-desc{font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:12px}
+.mod-desc b{color:#2f2a63;font-weight:800}
+/* 每个模块的「这数据干啥用」说明条 */
+.purpose{display:flex;align-items:flex-start;gap:8px;font-size:11.5px;line-height:1.6;background:#f7f6ff;border:1px solid rgba(106,92,255,.14);border-radius:10px;padding:8px 11px;margin-bottom:12px;color:#43435a}
+.purpose .k{color:#fff;background:var(--brand);border-radius:5px;padding:1px 6px;font-weight:900;white-space:nowrap;font-size:10.5px;letter-spacing:.3px}
+.layout{display:grid;grid-template-columns:312px minmax(0,1fr) 312px;gap:15px;align-items:start}
+.col-left,.col-right{position:sticky;top:92px;align-self:start}
+@media(max-width:1200px){.layout{grid-template-columns:1fr}.col-left,.col-right{position:static}}
+
+/* ============ 核心指标卡 ============ */
+.metrics{display:flex;flex-direction:column;gap:10px}
+.metric{background:#fafafd;border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 12px}
+.metric .m-top{display:flex;align-items:baseline;gap:8px}
+.metric .label{font-size:12px;color:var(--muted);font-weight:800;display:flex;align-items:center;gap:5px;flex:1;min-width:0;white-space:nowrap}
+.metric .label i{width:6px;height:6px;border-radius:2px;background:var(--brand);display:inline-block;font-style:normal;flex-shrink:0}
+.metric .value{font-size:22px;font-weight:900;letter-spacing:-.8px;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap}
+.metric .value small{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0}
+.metric .scope{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:4px}
+.metric .use{font-size:10.8px;color:#55556b;line-height:1.65;margin-top:7px;padding-top:7px;border-top:1px dashed var(--border)}
+.metric .use b{color:var(--accent);font-weight:800}
+
+/* ============ 环形图 ============ */
+.donut-wrap{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.donut{flex-shrink:0;position:relative;width:146px;height:146px}
+.donut .center{position:absolute;top:0;left:0;width:146px;height:146px;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:1px}
+.donut .center .n{font-size:27px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;color:#1b1b23}
+.donut .center{transform:translateY(-1px)}
+.donut .center .t{font-size:10px;color:#6b6b7b;font-weight:700;line-height:1;letter-spacing:.5px}
+.donut-legend{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:var(--fg)}
+.dl-row{align-items:center}
+.donut-wrap{gap:12px}
+.dl-row{display:flex;align-items:center;gap:6px}
+.dl-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+.dl-name{flex:1;color:#2a2a38;font-weight:800;white-space:nowrap}
+.dl-cnt{color:#6b6b7b;font-weight:700;font-variant-numeric:tabular-nums;font-size:10.5px}
+.dl-pct{width:36px;text-align:right;color:#3a3a4d;font-weight:900;font-variant-numeric:tabular-nums}
+
+/* ============ 完备度 ============ */
+.cov-row{margin-bottom:10px}
+.cov-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;gap:6px}
+.cov-label .cl-name{font-weight:700}
+.cov-label .cl-val{color:var(--muted);font-variant-numeric:tabular-nums;font-size:11px;white-space:nowrap}
+.cov-track{height:8px;border-radius:999px;background:#eef0f6;overflow:hidden}
+.cov-fill{height:100%;border-radius:999px;transition:width .6s}
+
+/* ============ 折线 + 柱状 ============ */
+.chart-area{position:relative}
+.chart{display:flex;align-items:flex-end;justify-content:space-around;gap:0;height:214px;padding:10px 24px 0;position:relative}
+.chart .col{flex:0 0 auto;width:150px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0;cursor:pointer;position:relative;height:100%}
+.chart .col .bar-wrap{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;overflow:hidden;min-height:0}
+.chart .col .bar{width:88px;max-width:none;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#a99cff,#6a5cff 65%,#5b4de8);flex:0 0 auto;transition:height .25s;box-shadow:0 6px 16px rgba(106,92,255,.22)}
+.chart .col:hover .bar{filter:brightness(1.1)}
+.chart .col.sel .bar{background:linear-gradient(180deg,var(--accent),#f0854f)}
+.chart .col .val{font-size:12.5px;font-weight:900;color:var(--fg);font-variant-numeric:tabular-nums;line-height:19px;white-space:nowrap;margin-bottom:3px}
+.chart .col .val em{font-style:normal;font-size:10px;font-weight:800;margin-left:4px;padding:1px 4px;border-radius:4px;background:rgba(18,184,134,.1)}
+.chart .col .val em.down{background:rgba(250,82,82,.1)}
+.up{color:#0ca678} .down{color:var(--danger)}
+.chart .col .wk{font-size:10.5px;color:var(--muted);font-weight:700;white-space:nowrap;height:22px;line-height:22px;border-top:2px solid rgba(20,20,40,.12);width:100%;text-align:center;margin-top:0}
+.chart-tip{position:absolute;pointer-events:none;background:#1b1b23;color:#fff;padding:6px 10px;border-radius:8px;font-size:11.5px;font-weight:700;white-space:nowrap;transform:translate(-50%,-115%);opacity:0;transition:opacity .12s;z-index:10;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.chart-tip.show{opacity:1}
+.axis-note{display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--border);margin-top:10px;line-height:1.55}
+.filter-banner{display:none;align-items:center;gap:10px;background:#f0edff;color:var(--brand);padding:8px 13px;border-radius:var(--radius-sm);font-size:12.5px;font-weight:700;margin-bottom:11px}
+.filter-banner button{margin-left:auto;background:var(--brand);color:#fff;border:none;border-radius:999px;padding:4px 11px;font-size:11px;cursor:pointer;font-weight:800}
+
+/* ============ 日增折线 (SVG) ============ */
+.spark{position:relative;height:186px;overflow:visible;margin-top:4px}
+.spark svg{display:block;width:100%;height:100%}
+.spark .tipbox{position:absolute;pointer-events:none;background:#1b1b23;color:#fff;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .12s;transform:translate(-50%,-130%);z-index:9}
+.spark .tipbox.show{opacity:1}
+.legend-inline{display:flex;gap:14px;font-size:11px;color:var(--muted);font-weight:700;margin-top:6px;flex-wrap:wrap}
+.legend-inline span{display:inline-flex;align-items:center;gap:5px}
+.legend-inline i{width:14px;height:0;border-top-width:2.5px;border-top-style:solid;display:inline-block}
+
+/* ============ 四象限 ============ */
+.quad{position:relative;height:248px}
+.quad svg{display:block;width:100%;height:100%}
+.quad-axes{font-size:10px;color:#9a9aaa;font-weight:700;margin-top:4px}
+.quad-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:10.5px;color:var(--muted);font-weight:700;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+.quad-legend span{display:inline-flex;align-items:center;gap:5px}
+.quad-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.quad .qtip{position:absolute;pointer-events:none;background:#1b1b23;color:#fff;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .12s;transform:translate(-50%,-135%);z-index:9}
+
+/* ============ 榜单条 ============ */
+.bt-row{display:grid;grid-template-columns:26px minmax(0,1.45fr) minmax(0,2.15fr) 112px;gap:10px;align-items:center;padding:9px 5px;border-bottom:1px solid var(--border);font-size:12.5px}
+.bt-row:last-child{border-bottom:none}
+.bt-row.head{font-size:10.5px;color:var(--muted);font-weight:800;padding-bottom:6px}
+.bt-row:not(.head):hover{background:#f9f9fd}
+.bt-rank{font-weight:900;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.bt-row:not(.head):nth-of-type(2) .bt-rank{color:var(--accent)}
+.bt-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bt-summary{font-size:11.5px;color:var(--muted);min-width:0;display:block;overflow:hidden}
+.bt-honors{display:inline-flex;gap:3px;margin-right:5px;vertical-align:middle}
+.bt-row .bt-summary{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1.4}
+.bt-row .bt-honors{margin-right:0}
+.bt-text{display:inline;vertical-align:middle}
+.bt-gain{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bt-gain b{color:var(--fg)}
+.bt-gain .g{color:var(--accent);font-weight:900}
+.known{display:inline-block;padding:1px 6px;border-radius:999px;font-size:9.5px;background:#f0edff;color:var(--brand);font-weight:800;margin-left:4px;vertical-align:middle}
+.hon{display:inline-block;padding:0 5px;border-radius:5px;font-size:9.5px;font-weight:800;margin-right:3px;background:#fff0e8;color:var(--accent)}
+.hon.b{background:#f0edff;color:var(--brand)}
+
+/* ============ 右栏列表 ============ */
+.rlist{display:flex;flex-direction:column;gap:2px}
+.ri{display:flex;align-items:center;gap:9px;padding:6px 7px;border-radius:10px;cursor:pointer;transition:.12s}
+.ri:hover{background:#f6f6fb}
+.ri .rk{width:20px;height:20px;border-radius:7px;display:grid;place-items:center;font-weight:900;font-size:11px;flex-shrink:0;background:#eef0f6;color:var(--muted)}
+.ri:nth-child(1) .rk{background:#ffe8e0;color:var(--accent)}
+.ri:nth-child(2) .rk{background:#f0edff;color:var(--brand)}
+.ri:nth-child(3) .rk{background:#fff3d6;color:#b07d00}
+.ri .rm{flex:1;min-width:0}
+.ri .rn{font-weight:800;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri .rs{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri .rg{font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums;flex-shrink:0;font-size:12.5px}
+
+/* ============ star 体量分布 ============ */
+.hist{display:flex;align-items:flex-end;gap:10px;height:104px;padding:2px 4px 0}
+.hist .hb{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end;height:100%}
+.hist .hb .bar{width:100%;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#c3baff,var(--brand));transition:.2s}
+.hist .hb:hover .bar{filter:brightness(1.1)}
+.hist .hb .cnt{font-size:11.5px;font-weight:900;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.hist .hb .lb{font-size:9.5px;color:var(--muted);white-space:nowrap;font-weight:700}
+.empty{text-align:center;color:var(--muted);padding:24px 0;font-size:12.5px}
+footer{margin-top:28px;padding:20px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px}
+footer a{color:var(--brand);font-weight:700}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo"><span class="dot">AD</span><span><span class="brand-title">AD·HOME</span><br><span class="brand-sub">GitHub 飙升雷达</span></span></div>
+    <nav class="topnav">
+      <a href="index.html" class="active">数据大屏</a>
+      <a href="rank.html">榜单与筛选</a>
+      <a href="https://www.ggrzj.cn/apps/">更多工具 ↗</a>
+    </nav>
+    <div class="status">
+      <span class="pill pill-muted">知名 <b id="knownCount">—</b></span>
+      <span class="pill pill-muted">快照日 <b id="snapDay">—</b></span>
+      <span class="pill pill-ok"><span class="dot-live"></span>服务在线</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="en">GitHub Trending Radar · Overview</div>
+    <h1>GitHub 飙升雷达 · 数据大屏</h1>
+    <p>一眼看清开源大盘的规模、增速与技术构成。每个数字都标了口径和用途，鼠标停在图表上可看明细。</p>
+    <div class="chips">
+      <span class="chip toggle on" id="tgKnown" role="button" tabindex="0"><span class="track"></span>含知名项目</span>
+      <span class="chip toggle" id="tgOnlyKnown" role="button" tabindex="0"><span class="track"></span>只看知名</span>
+      <span class="chip">当前范围 <b id="scopeCount">—</b> 个仓库</span>
+      <span class="chip">口径：star ≥ <b id="scopeStars">—</b> · <b id="scopeYears">—</b> 年内有更新</span>
+      <span class="chip">数据留本地 · 零上传</span>
+    </div>
+    <div class="freshness" id="freshness"></div>
+  </div>
+
+  <div class="layout">
+    <!-- ================= 左栏 ================= -->
+    <div class="col-left">
+      <div class="mod">
+        <div class="mod-head"><h3>核心指标</h3><span class="hint">随筛选变化</span></div>
+        <div class="mod-desc">整批仓库的<b>规模与活跃度</b>总览，四个数字分别回答“有多少项目、体量多大、现在涨得怎么样、数据可不可信”。</div>
+        <div class="metrics" id="metricBox"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>开发语言分布</h3><span class="hint" id="langHint">共 — 个仓库</span></div>
+        <div class="mod-desc">这批项目用什么语言写。</div>
+        <div class="purpose"><span class="k">用途</span><span>判断当前技术栈风向：哪门语言的项目在集中冒头，你的技能或选型要不要跟着转移。</span></div>
+        <div class="donut-wrap">
+          <div class="donut"><svg id="langDonut" width="146" height="146" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet"></svg><div class="center"><div class="n" id="langCenter">—</div></div></div>
+          <div class="donut-legend" id="langLegend"></div>
+        </div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>支持协议分布</h3><span class="hint" id="licHint">共 — 个仓库</span></div>
+        <div class="mod-desc">开源许可证的宽松程度分布。</div>
+        <div class="purpose"><span class="k">用途</span><span>决定能不能直接商用、能不能改代码闭源。MIT / Apache 宽松可商用；GPL / AGPL 有传染性，接入要谨慎。</span></div>
+        <div class="donut-wrap">
+          <div class="donut"><svg id="licDonut" width="146" height="146" viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet"></svg><div class="center"><div class="n" id="licCenter">—</div></div></div>
+          <div class="donut-legend" id="licLegend"></div>
+        </div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>数据完备度</h3><span class="hint">五项采集口径</span></div>
+        <div class="mod-desc">每类字段实际采集到的比例，直接决定上面这些数字有多可信。</div>
+        <div class="purpose"><span class="k">用途</span><span>先看这一块再信别的图：覆盖率低的维度，占比和对排名都只能当参考，别据此单独下结论。</span></div>
+        <div id="covBox"></div>
+      </div>
+    </div>
+
+    <!-- ================= 中栏 ================= -->
+    <div>
+      <div class="mod">
+        <div class="mod-head"><h3>项目日增走势</h3><span class="hint" id="dailyHint">近 4 个快照日</span></div>
+        <div class="mod-desc">每天全池新增 star 的合计走势。</div>
+        <div class="purpose"><span class="k">用途</span><span>看热度是在升温还是退潮：折线往上走说明这波关注还在扩大，连续走平或回落就该考虑换方向了。</span></div>
+        <div class="spark" id="dailySpark"><div class="tipbox" id="sparkTip"></div></div>
+        <div class="legend-inline" id="dailyLegend"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>每周新增 star 统计</h3><span class="hint">点柱子看该周榜单</span></div>
+        <div class="mod-desc">按自然周汇总的全池新增 star，柱顶标注同比上一周的涨跌。</div>
+        <div class="purpose"><span class="k">用途</span><span>定位“爆发周”：哪一周大盘突然放量，就回到那周的榜单找原因。点任意柱子，下方榜单会切成那一周的数据。</span></div>
+        <div class="filter-banner" id="weekFilter"><span id="weekFilterText"></span><button type="button" id="clearWeek">✕ 清除筛选</button></div>
+        <div class="chart-area">
+          <div class="chart" id="weeklyChart"></div>
+          <div class="chart-tip" id="chartTip"></div>
+        </div>
+        <div class="axis-note"><span id="weekAxisLeft"></span><span id="weekAxisRight"></span></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3 id="ranksTitle">当日飙升榜</h3><a class="hint" href="rank.html">完整榜单 →</a></div>
+        <div class="mod-desc">按新增 star 排序，名称 + 一句话概要 + 荣誉标签。</div>
+        <div class="purpose"><span class="k">用途</span><span>回答“现在最值得看的是哪几个”。前几名可以直接点进仓库，判断有没有能抄的做法或能用的工具。</span></div>
+        <div class="bt-row head"><span style="text-align:center">#</span><span>仓库</span><span>概要 · 荣誉</span><span style="text-align:right" id="bigHeadGain">当日新增</span></div>
+        <div id="bigList"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>项目热度四象限</h3><span class="hint">体量 × 增速</span></div>
+        <div class="mod-desc">横轴 star 体量，纵轴近 30 天涨幅，气泡大小 = 近 7 天新增。</div>
+        <div class="purpose"><span class="k">用途</span><span>一眼分出四类项目：<b>左上</b>小而快涨（最值得看的新苗）、<b>右上</b>又大又快（当下主流）、<b>右下</b>大而慢（成熟存量）、<b>左下</b>小且慢（可忽略）。</span></div>
+        <div class="quad" id="quadBox"></div>
+        <div class="quad-axes">横轴 star 体量（线性）→｜纵轴 30 天涨幅（对数刻度）｜气泡大小 = 近 7 天新增</div>
+        <div class="quad-legend"><span><i style="background:var(--accent)"></i>小而快涨</span><span><i style="background:var(--brand)"></i>又大又快</span><span><i style="background:#868e96"></i>大而慢</span><span><i style="background:#d0d0dc"></i>小且慢</span></div>
+      </div>
+    </div>
+
+    <!-- ================= 右栏 ================= -->
+    <div class="col-right">
+      <div class="mod">
+        <div class="mod-head"><h3>近 7 天飙升</h3><span class="hint">周维度</span></div>
+        <div class="mod-desc">一周涨幅最猛的项目。</div>
+        <div class="purpose"><span class="k">用途</span><span>过滤单日噪音，只留持续一周吸 star 的项目——更可能是真趋势，而非一次性曝光。</span></div>
+        <div class="rlist" id="g7List"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>star 体量分布</h3><span class="hint">4 档</span></div>
+        <div class="mod-desc">按 star 数量级分档计数。</div>
+        <div class="purpose"><span class="k">用途</span><span>小项目多 = 新项目在冒头；大项目多 = 头部固化、新机会少。</span></div>
+        <div class="hist" id="histBox"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>最新版本发布</h3><span class="hint" id="relHint">近期</span></div>
+        <div class="mod-desc">最近发新版本的项目。</div>
+        <div class="purpose"><span class="k">用途</span><span>判断项目是不是活着：很久没发版的仓库，哪怕 star 好看也别急着上生产。</span></div>
+        <div class="rlist" id="relList"></div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><h3>收藏夹</h3><span class="hint">已收藏 <b id="watchCount">0</b></span></div>
+        <div class="mod-desc">你在榜单页点「收藏」的项目。</div>
+        <div class="purpose"><span class="k">用途</span><span>把要跟的项目钉在这里，下次打开大屏先看它们有没有新涨幅、有没有发新版。</span></div>
+        <div class="rlist" id="watchList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">© 广告人之家 ggrzj.cn · GitHub 飙升雷达 · 本地运行 零上传 · <a href="https://www.ggrzj.cn/apps/">返回工具箱</a></div>
+</footer>
+
+<script src="radar-data.js"></script>
+<script>
+/* ============================================================
+   计算层：全站所有数字都由 D（唯一数据源）现算。
+   页面里没有任何手写的合计 / 百分比 / 排名。
+   ============================================================ */
+const D = window.RADAR_DATA;
+if(!D){document.body.innerHTML='<p style="padding:40px;font:14px/1.7 sans-serif">数据文件 radar-data.js 未加载，请与本页放在同一目录。</p>';throw new Error('RADAR_DATA missing');}
+const $=id=>document.getElementById(id);
+const REPOS=D.repos, WEEKS=D.weeks;
+const knownSet=new Set(D.known.map(s=>s.toLowerCase()));
+const fmtNum=n=>n==null?'—':Number(n).toLocaleString('en-US');
+function fmtCompact(n){if(n==null)return'—';n=Number(n);if(n>=1e6)return(n/1e6).toFixed(2).replace(/\.?0+$/,'')+'M';if(n>=1e3)return(n/1e3).toFixed(1).replace(/\.0$/,'')+'k';return String(n);}
+const pct=(v,t)=>t?Math.round(v/t*100):0;
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ago=ts=>{if(!ts)return'—';const s=(Date.now()-new Date(ts).getTime())/1000;
+  if(s<60)return'刚刚';if(s<3600)return Math.floor(s/60)+'分钟前';if(s<86400)return Math.floor(s/3600)+'小时前';
+  if(s<86400*30)return Math.floor(s/86400)+'天前';return String(ts).slice(0,10);};
+
+let FILTER_WEEK=null;
+
+/* 当前可见集合（受「含知名 / 只看知名」影响） */
+function visible(){
+  const inc=$('tgKnown').classList.contains('on'), only=$('tgOnlyKnown').classList.contains('on');
+  return REPOS.filter(r=>{const k=knownSet.has(r.full_name.toLowerCase());return only?k:(inc?true:!k);});
+}
+/* 单次统一计算，所有模块共用这一份结果 */
+function computeView(list){
+  const n=list.length;
+  const sum=k=>list.reduce((a,r)=>a+(r[k]||0),0);
+  const weeks=WEEKS.map((w,i)=>list.reduce((a,r)=>a+((r.weekly&&r.weekly[i])||0),0));
+  const group=key=>{
+    const m=new Map();
+    list.forEach(r=>{const k=r[key]||'未标注';m.set(k,(m.get(k)||0)+1);});
+    return [...m.entries()].map(([name,count])=>({name,count,pct:pct(count,n)})).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
+  };
+  const buckets=[['<1万',0,10000],['1–5万',10000,50000],['5–10万',50000,100000],['10万+',100000,Infinity]];
+  const hist=buckets.map(([label,lo,hi])=>({label,count:list.filter(r=>r.stars>=lo&&r.stars<hi).length}));
+  const ready=list.filter(r=>D.facts_ready.includes(r.full_name)).length;
+  const rel30=list.filter(r=>r.latest_release_at&&r.latest_release_at>='2026-10-16').length;
+  return {
+    n, list,
+    stars:sum('stars'), forks:sum('forks'),
+    gain:sum('gain'), gain7:sum('gain_7d'), gain30:sum('gain_30d'),
+    weeks, weekSum:weeks.reduce((a,b)=>a+b,0),
+    lang:group('lang'), lic:group('license_spdx'), hist,
+    ready, cover:n?ready/n:0,
+    hasVersion:list.filter(r=>r.latest_version).length,
+    rel30,
+    fresh24:list.filter(r=>r.repo_updated_at&&r.repo_updated_at.slice(0,10)>=D.meta.snapshot_day).length,
+    known:n?list.filter(r=>knownSet.has(r.full_name.toLowerCase())).length:0
+  };
+}
+
+/* ---------- 数据新鲜度提示：明确告诉用户这是真实抓取还是还在积累 ---------- */
+function renderFreshness(V){
+  const box=$('freshness');
+  const m=D.meta||{};
+  const days=m.history_days||0;
+  const sync=m.sync_at?new Date(m.sync_at):null;
+  const ageH=sync?Math.round((Date.now()-sync.getTime())/3600000):null;
+  const ageTxt=ageH==null?'未知':(ageH<1?'刚刚':(ageH<24?ageH+' 小时前':Math.floor(ageH/24)+' 天前'));
+
+  /* 必须先判断数据来源：演示数据绝不能宣称来自 API */
+  /* 判据用「采集器才会写入的字段」：meta.discovery 存在 => 真实抓取。
+     不能用 source 里是否含 "GitHub REST API" 判断——演示数据的说明文字里也会出现这个词。 */
+  const isReal = !!m.discovery || /^GitHub REST API/.test(m.source||'');
+  if(!isReal){
+    box.className='freshness show';
+    box.innerHTML=`<span class="ico">!</span><span>
+      <b>当前是演示数据，不是真实数据。</b>
+      这 ${V.n} 个仓库与全部数值均为示例，用于验证页面结构与图表。
+      要换成真实数据：配置 <b>GITHUB_TOKEN</b> 后运行 <b>scripts/fetch-radar.mjs</b>，
+      或启用 <b>.github/workflows/update-radar.yml</b> 让它每天自动更新。</span>`;
+    return;
+  }
+  if(days<7){
+    box.className='freshness show';
+    box.innerHTML=`<span class="ico">!</span><span>
+      <b>真实数据 · 增量正在积累</b>：已抓取 <b>${V.n}</b> 个仓库的真实 star（GitHub API，${ageTxt}），
+      但历史快照只有 <b>${days}</b> 天，不满 7 天，因此「日增 / 周增 / 近 7 天 / 30 天」暂为 0 ——
+      这是<b>还没积累到</b>，不是没有增长。连续运行满 7 天后自动变为真实值。</span>`;
+    return;
+  }
+  box.className='freshness show ok';
+  box.innerHTML=`<span class="ico">✓</span><span>
+    <b>真实数据</b>：来自 GitHub API，抓取于 ${ageTxt}；已积累 <b>${days}</b> 天历史快照，
+    日增 / 周增 / 月增均为前后快照差分所得。快照日 <b>${m.snapshot_day||'—'}</b>。</span>`;
+}
+
+/* ---------- 核心指标卡：名称 + 口径 + 用途 ---------- */
+function renderMetrics(V){
+  const wAvg=(V.stars&&V.n)?Math.round(V.stars/V.n):0;
+  const growth=V.stars?(V.gain30/(V.stars-V.gain30)*100):0;
+  const cards=[
+    {lb:'在库项目', v:fmtNum(V.n), unit:'个',
+     scope:`star ≥ ${fmtNum(D.scope.min_stars)} · ${D.scope.active_within_years} 年内有更新`,
+     use:'看候选池有多大。池子太小时，下面的占比和排名都不稳，先扩采集再说。'},
+    {lb:'star 总量', v:fmtCompact(V.stars), unit:'',
+     scope:`${fmtNum(V.stars)} 颗 · fork ${fmtCompact(V.forks)} · 平均 ${fmtCompact(wAvg)}/项目`,
+     use:'衡量总关注度。<b>均值</b>比总量更有用：均值高说明头部集中，中位数附近才是普通项目的水位。'},
+    {lb:'快照日新增', v:'+'+fmtNum(V.gain), unit:'/日',
+     scope:`${D.meta.snapshot_day} 单日 · 近 7 天 +${fmtNum(V.gain7)}`,
+     use:'当天热度快照。与 7 天日均 '+fmtNum(Math.round(V.gain7/7))+' 颗对比：高于日均说明今天在加速。'},
+    {lb:'30 天涨幅', v:'+'+fmtCompact(V.gain30), unit:'',
+     scope:`占现有体量 ${growth.toFixed(1)}% · 日均 +${fmtNum(Math.round(V.gain30/30))}`,
+     use:'看中期趋势斜率。占比越高说明这批项目正处于加速期，不是已经凉下来的存量。'},
+    {lb:'事实库覆盖', v:pct(V.ready,V.n)+'%', unit:'',
+     scope:`${V.ready} / ${V.n} 个仓库历史曲线已抓全`,
+     use:'决定日增、周增这些<u>增量指标</u>能不能信。覆盖不足时，涨跌只能看方向，不能当精确值。', wide:true}
+  ];
+  $('metricBox').innerHTML=cards.map(c=>`
+    <div class="metric">
+      <div class="m-top"><div class="label"><i></i>${c.lb}</div><div class="value">${c.v}${c.unit?`<small> ${c.unit}</small>`:''}</div></div>
+      <div class="scope">${c.scope}</div>
+      <div class="use">用途：${c.use}</div>
+    </div>`).join('');
+  $('knownCount').textContent=D.known.length;
+  $('langHint').textContent=`共 ${V.n} 个仓库`;
+  $('licHint').textContent=`共 ${V.n} 个仓库`;
+  $('snapDay').textContent=D.meta.snapshot_day;
+  $('scopeCount').textContent=fmtNum(V.n);
+  $('scopeStars').textContent=fmtNum(D.scope.min_stars);
+  $('scopeYears').textContent=D.scope.active_within_years;
+}
+
+/* ---------- 环形图（含图例：名称 + 个数 + 占比） ---------- */
+const LANG_COLORS={'JavaScript':'#f1e05a','TypeScript':'#3178c6','Python':'#3572A5','Go':'#00ADD8','Rust':'#dea584','Java':'#b07219','C++':'#f34b7d','C':'#555555','Shell':'#89e051','Zig':'#ec915c'};
+const PALETTE=['#6a5cff','#e2622b','#12b886','#3178c6','#f59f00','#fa5252','#be4bdb','#15aabf','#f06595','#868e96'];
+const LIC_COLORS={'MIT':'#12b886','Apache-2.0':'#6a5cff','GPL-2.0':'#e2622b','AGPL-3.0':'#fa5252','CC0-1.0':'#15aabf','BSD-3-Clause':'#f59f00'};
+const SHORT={'Apache-2.0':'Apache','GPL-2.0':'GPL','AGPL-3.0':'AGPL','BSD-3-Clause':'BSD-3'};
+
+function renderDonut(svgId,legId,centerId,rows,colors,total){
+  const svg=$(svgId);
+  const segs=rows.map((d,i)=>({...d,color:colors[d.name]||PALETTE[i%PALETTE.length]}));
+  let off=25,out='';
+  out+=`<circle cx="21" cy="21" r="15.9155" fill="none" stroke="#eef0f6" stroke-width="4.6"></circle>`;
+  segs.forEach(d=>{
+    const p=d.count/(total||1)*100;
+    if(p<=0)return;
+    out+=`<circle cx="21" cy="21" r="15.9155" fill="none" stroke="${d.color}" stroke-width="4.6" stroke-dasharray="${p.toFixed(3)} ${(100-p).toFixed(3)}" stroke-dashoffset="${off.toFixed(3)}" transform="rotate(-90 21 21)"></circle>`;
+    off-=p;
+  });
+  svg.innerHTML=out;
+  $(centerId).textContent=total;
+  $(legId).innerHTML=segs.map(d=>`
+    <div class="dl-row" title="${esc(d.name)}：${d.count} 个，占 ${d.pct}%">
+      <span class="dl-dot" style="background:${d.color}"></span>
+      <span class="dl-name">${esc(SHORT[d.name]||d.name)}</span>
+      <span class="dl-cnt">${d.count}</span>
+      <span class="dl-pct">${d.pct}%</span>
+    </div>`).join('')||'<div class="empty">暂无数据</div>';
+}
+
+/* ---------- 完备度 ---------- */
+function renderCov(V){
+  const rows=[
+    {n:'历史 star 曲线',v:V.cover,sub:`${V.ready}/${V.n}`,c:'#6a5cff',
+     tip:'增量指标的地基，缺一条就少一条日增曲线'},
+    {n:'项目概要',v:V.n?V.list.filter(r=>r.summary).length/V.n:0,sub:`${V.list.filter(r=>r.summary).length}/${V.n}`,c:'#e2622b',
+     tip:'列表里的一句话说清楚，否则只能看仓库名'},
+    {n:'版本发布',v:V.n?V.hasVersion/V.n:0,sub:`${V.hasVersion}/${V.n}`,c:'#12b886',
+     tip:'没有版本信息的仓库，难以判断是否仍在维护'},
+    {n:'开源协议',v:V.n?V.list.filter(r=>r.license_spdx).length/V.n:0,sub:`${V.list.filter(r=>r.license_spdx).length}/${V.n}`,c:'#3178c6',
+     tip:'协议缺失就无法评估商用风险'},
+    {n:'开发语言',v:V.n?V.list.filter(r=>r.lang).length/V.n:0,sub:`${V.list.filter(r=>r.lang).length}/${V.n}`,c:'#f59f00',
+     tip:'语言缺失会让技术栈分布失真'}
+  ];
+  $('covBox').innerHTML=rows.map(r=>{
+    const p=Math.round(r.v*100);
+    return `<div class="cov-row" title="${esc(r.tip)}">
+      <div class="cov-label"><span class="cl-name">${r.n}</span><span class="cl-val">${r.sub} · ${p}%</span></div>
+      <div class="cov-track"><div class="cov-fill" style="width:${p}%;background:${r.c}"></div></div>
+    </div>`;
+  }).join('');
+}
+
+/* ---------- 项目日增走势（用 weekly 序列还原最近 4 个快照日的全池日增） ---------- */
+function renderDaily(V){
+  const box=$('dailySpark');
+  const vals=V.weeks, labels=WEEKS;
+  const H=186, PL=58, PR=78, PT=30, PB=30;
+  const W=Math.max(360, Math.round(box.clientWidth||560));
+  /* 纵轴上限：取 bar 值的 1/2/2.5/5×10^n 档，保证刻度是整数、曲线不贴顶 */
+  const maxV=Math.max(...vals);
+  const rawStep=maxV/3;
+  const mag=Math.pow(10,Math.floor(Math.log10(rawStep)));
+  const step=[1,2,2.5,5,10].map(k=>k*mag).find(x=>x>=rawStep)||10*mag;
+  const top=Math.ceil(maxV*1.04/step)*step;
+  const base=H-PB;
+  const IN=14;   /* 首尾点内缩，避免贴轴 */
+  const x=i=>PL+IN+(W-PL-PR-IN*2)*(vals.length===1?0.5:i/(vals.length-1));
+  const y=v=>PT+(base-PT)*(1-v/top);           /* v=0 → y=base，v=top → y=PT */
+  const pts=vals.map((v,i)=>[x(i),y(v)]);
+  const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const area=`${line} L${pts[pts.length-1][0].toFixed(1)} ${base} L${pts[0][0].toFixed(1)} ${base} Z`;
+  /* 刻度：0 与每一档，位置都走同一个 y() */
+  const tickVals=[]; for(let v=0;v<=top+1;v+=step) tickVals.push(v);
+  const ticks=tickVals.map(v=>{
+    const yy=y(v);
+    return `<line x1="${PL}" y1="${yy.toFixed(1)}" x2="${W-PR}" y2="${yy.toFixed(1)}" stroke="rgba(20,20,40,${v===0?'.18':'.07'})" ${v===0?'':'stroke-dasharray="3 4"'}/>
+      <text x="${PL-9}" y="${(yy+3.5).toFixed(1)}" text-anchor="end" font-size="10" fill="#8b8b9a">${fmtNum(v)}</text>`;
+  }).join('');
+  const dots=pts.map((p,i)=>{
+    const dv=i?vals[i]-vals[i-1]:null;
+    const color=dv==null?'#6a5cff':(dv>0?'#12b886':(dv<0?'#fa5252':'#8b8b9a'));
+    return `<g class="dpt" data-i="${i}" style="cursor:pointer">
+      <circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="11" fill="transparent"/>
+      <circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4.5" fill="#fff" stroke="${color}" stroke-width="2.5"/>
+      <text x="${p[0].toFixed(1)}" y="${base+19}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#8b8b9a">${labels[i]}</text>
+    </g>`;
+  }).join('');
+  const last=pts[pts.length-1];
+  const lastLbl=`<text x="${(last[0]+8).toFixed(1)}" y="${(last[1]-9).toFixed(1)}" text-anchor="start" font-size="11" font-weight="900" fill="#4b3fd4">+${fmtNum(vals[vals.length-1])}</text>`;
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="每周全池新增 star 走势">${ticks}
+    <path d="${area}" fill="rgba(106,92,255,.10)"/>
+    <path d="${line}" fill="none" stroke="#6a5cff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    ${dots}${lastLbl}</svg><div class="tipbox" id="sparkTip"></div>`;
+  /* preserveAspectRatio=none 会横向拉伸圆点：按缩放比补偿半径，保持视觉为正圆 */
+  const kx=W/Math.max(1,box.clientWidth||W);
+  if(Math.abs(kx-1)>0.02){
+    box.querySelectorAll('svg circle').forEach(c=>{
+      c.setAttribute('r',(parseFloat(c.getAttribute('r'))*kx).toFixed(2));
+      c.setAttribute('stroke-width',(2.5*kx).toFixed(2));
+    });
+  }
+  const tip=$('sparkTip');
+  box.querySelectorAll('.dpt').forEach(g=>{
+    g.addEventListener('mousemove',e=>{
+      const i=+g.dataset.i, dv=i?vals[i]-vals[i-1]:null;
+      const ar=box.getBoundingClientRect();
+      tip.innerHTML=`${labels[i]} 周：+${fmtNum(vals[i])}${dv==null?'':`　环比 ${dv>=0?'+':''}${fmtNum(dv)}`}`;
+      tip.style.left=(e.clientX-ar.left)+'px';tip.style.top=(e.clientY-ar.top)+'px';tip.classList.add('show');
+    });
+    g.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+  });
+  const first=vals[0], lastV=vals[vals.length-1];
+  const delta=lastV-first, r=first?Math.round(delta/first*100):0;
+  $('dailyLegend').innerHTML=`
+    <span><i style="border-color:#6a5cff"></i>全池每周新增 star</span>
+    <span>${WEEKS[0]} → ${WEEKS[WEEKS.length-1]}：<b style="color:${delta>=0?'#12b886':'#fa5252'}">${delta>=0?'+':''}${fmtNum(delta)}（${r>=0?'+':''}${r}%）</b></span>
+    <span>这是<b>周汇总</b>序列，不是单日；单日值见左栏「快照日新增」。</span>`;
+  $('dailyHint').textContent=`${WEEKS[0]}–${WEEKS[WEEKS.length-1]} 周`;
+}
+
+/* ---------- 每周柱状：柱顶涨幅 + 点击筛选 ---------- */
+function renderChart(V){
+  const box=$('weeklyChart');box.innerHTML='';
+  const hi=Math.max(...V.weeks,1);
+  V.weeks.forEach((val,i)=>{
+    const prev=i?V.weeks[i-1]:null;
+    const dv=prev==null?null:val-prev;
+    const dp=prev?Math.round(dv/prev*100):null;
+    const h=Math.max(8,Math.round(val/hi*128));
+    const col=document.createElement('div');
+    col.className='col'+(FILTER_WEEK===i?' sel':'');
+    col.innerHTML=`
+      <div class="bar-wrap">
+        <div class="val">+${fmtNum(val)}${dv==null?'':`<em class="${dv>=0?'up':'down'}">${dv>=0?'▲':'▼'}${Math.abs(dp)}%</em>`}</div>
+        <div class="bar" style="height:${h}px"></div>
+      </div>
+      <div class="wk">${WEEKS[i]}</div>`;
+    col.onmousemove=e=>{
+      const tip=$('chartTip'),ar=$('weeklyChart').getBoundingClientRect();
+      tip.innerHTML=`${WEEKS[i]} 周：+${fmtNum(val)}${dv==null?'':'　环比 '+(dv>=0?'+':'')+fmtNum(dv)}`;
+      tip.style.left=(e.clientX-ar.left)+'px';tip.style.top=(e.clientY-ar.top)+'px';tip.classList.add('show');
+    };
+    col.onmouseleave=()=>$('chartTip').classList.remove('show');
+    col.onclick=()=>{FILTER_WEEK=(FILTER_WEEK===i)?null:i;renderAll();};
+    box.appendChild(col);
+  });
+  $('weekAxisLeft').textContent=`4 周合计 +${fmtNum(V.weekSum)} · 纵轴从 0 起，柱高与数值成正比`;
+  $('weekAxisRight').textContent=`注：近 7 天窗口 = +${fmtNum(V.gain7)}，与 4 周合计口径不同，不可相加`;
+}
+
+/* ---------- 榜单（当前周期 / 选中周） ---------- */
+function renderBig(V){
+  const box=$('bigList');box.innerHTML='';
+  const useWeek=FILTER_WEEK!=null;
+  let list=V.list.map(r=>({r,g:useWeek?((r.weekly&&r.weekly[FILTER_WEEK])||0):(r.gain||0)}));
+  list.sort((a,b)=>b.g-a.g||b.r.stars-a.r.stars);
+  list=list.slice(0,12);
+  const label=useWeek?`${WEEKS[FILTER_WEEK]} 周新增`:'当日新增';
+  $('ranksTitle').textContent=useWeek?`${WEEKS[FILTER_WEEK]} 周飙升榜`:'当日飙升榜';
+  $('bigHeadGain').textContent=label;
+  if(useWeek){
+    $('weekFilter').style.display='flex';
+    $('weekFilterText').textContent=`正在查看「${WEEKS[FILTER_WEEK]}」周的飙升榜 · 合计 +${fmtNum(V.weeks[FILTER_WEEK])}`;
+  }else{$('weekFilter').style.display='none';}
+  if(!list.length){box.innerHTML='<div class="empty">当前筛选下暂无数据</div>';return;}
+  box.innerHTML=list.map(({r,g},i)=>{
+    const honors=[];
+    if(i<3)honors.push(`<span class="hon">top-${i+1}</span>`);
+    if(r.is_new)honors.push(`<span class="hon">NEW</span>`);
+    return `<div class="bt-row" data-repo="${esc(r.full_name)}">
+      <span class="bt-rank">${i+1}</span>
+      <span class="bt-name">${esc(r.full_name)}</span>
+      <span class="bt-summary">${honors.length?`<span class="bt-honors">${honors.join('')}</span>`:''}<span class="bt-text">${esc(r.summary||'暂无概要')}</span></span>
+      <span class="bt-gain"><b>${fmtCompact(r.stars)}</b> <span class="g">+${fmtNum(g)}</span></span>
+    </div>`;
+  }).join('');
+  box.querySelectorAll('.bt-row').forEach(row=>{
+    row.onclick=()=>window.open('https://github.com/'+row.dataset.repo,'_blank');
+  });
+}
+
+/* ---------- 项目热度四象限：体量 × 增速（全部由数据现算） ---------- */
+function renderQuad(V){
+  const box=$('quadBox');
+  const pts=V.list.map(r=>({
+    name:r.full_name, stars:r.stars||0, g30:r.gain_30d||0, g7:r.gain_7d||0,
+    up:(r.gain_30d||0)/Math.max(1,(r.stars||1)-(r.gain_30d||0))*100
+  }));
+  if(!pts.length){box.innerHTML='<div class="empty">当前筛选下暂无数据</div>';return;}
+  const W=Math.max(320,box.clientWidth||520), H=252, PL=56, PR=20, PT=16, PB=42;
+
+  /* ---------- 标度 ----------
+     横轴：线性 0 → 50k 整数倍
+     纵轴：对数（涨幅 0.6%~61% 跨两个数量级，线性会把点压成一条线）
+     所有坐标都由 x()/y() 唯一换算，刻度标注即该位置的真实值 */
+  const maxS=Math.max(...pts.map(p=>p.stars));
+  const maxSx=Math.ceil(maxS/50000)*50000;
+  const upList=pts.map(p=>p.up);
+  const minU=Math.max(0.1,Math.floor(Math.min(...upList)*10)/10);
+  const maxU=Math.ceil(Math.max(...upList));
+  const maxG7=Math.max(...pts.map(p=>p.g7),1);
+  const x=v=>PL+(W-PL-PR)*(v/maxSx);
+  const lu=v=>Math.log(Math.max(v,minU)/minU)/Math.log(maxU/minU);
+  const y=u=>PT+(H-PT-PB)*(1-lu(Math.max(u,minU)));
+  const med=arr=>{const a=[...arr].sort((m,n)=>m-n);const k=Math.floor(a.length/2);return a.length%2?a[k]:(a[k-1]+a[k])/2;};
+  const xMid=med(pts.map(p=>p.stars)), yMid=med(upList);
+  const fmtPct=v=>v<1?v.toFixed(2)+'%':(v<10?v.toFixed(1)+'%':v.toFixed(0)+'%');
+
+  /* ---------- 象限着色：以中位为界 ---------- */
+  const color=p=>(p.stars>=xMid&&p.up>=yMid)?'#6a5cff':(p.stars<xMid&&p.up>=yMid)?'#e2622b':(p.stars>=xMid?'#868e96':'#b9b9c6');
+  const dots=pts.map(p=>{
+    const rr=4+Math.sqrt(p.g7/maxG7)*8;
+    const cx=x(p.stars), cy=y(p.up);
+    return `<g class="qp" data-name="${esc(p.name)}" data-stars="${p.stars}" data-g30="${p.g30}" data-g7="${p.g7}" data-up="${p.up.toFixed(1)}" style="cursor:pointer">
+      <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(rr+7).toFixed(1)}" fill="transparent"/>
+      <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${rr.toFixed(1)}" fill="${color(p)}" fill-opacity=".75" stroke="${color(p)}" stroke-width="1.2"/>
+    </g>`;
+  }).join('');
+
+  /* ---------- 刻度 ---------- */
+  const xTicks=[0,1,2,3,4].map(k=>{
+    const v=maxSx*k/4, px=x(v), anchor=k===0?'start':(k===4?'end':'middle');
+    return `<line x1="${px.toFixed(1)}" y1="${H-PB}" x2="${px.toFixed(1)}" y2="${H-PB+4}" stroke="rgba(20,20,40,.22)"/>
+      <text x="${px.toFixed(1)}" y="${H-PB+16}" text-anchor="${anchor}" font-size="9.5" fill="#8a8a9a">${fmtCompact(v)}</text>`;
+  }).join('');
+  /* 纵轴取 0.25/0.5/0.75/1 四个对数位置，标注反算的真实涨幅 */
+  const ySteps=[0,0.25,0.5,0.75,1].map(t=>minU*Math.pow(maxU/minU,t));
+  const yTicks=ySteps.map(v=>{
+    const yy=y(v);
+    return `<line x1="${PL-4}" y1="${yy.toFixed(1)}" x2="${PL}" y2="${yy.toFixed(1)}" stroke="rgba(20,20,40,.22)"/>
+      <line x1="${PL}" y1="${yy.toFixed(1)}" x2="${W-PR}" y2="${yy.toFixed(1)}" stroke="rgba(20,20,40,.06)"/>
+      <text x="${PL-8}" y="${(yy+3.5).toFixed(1)}" text-anchor="end" font-size="9.5" fill="#8a8a9a">${fmtPct(v)}</text>`;
+  }).join('');
+
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="项目热度四象限">
+    <line x1="${PL}" y1="${PT}" x2="${W-PR}" y2="${PT}" stroke="rgba(20,20,40,.06)"/>
+    <line x1="${PL}" y1="${H-PB}" x2="${W-PR}" y2="${H-PB}" stroke="rgba(20,20,40,.18)"/>
+    <line x1="${PL}" y1="${PT}" x2="${PL}" y2="${H-PB}" stroke="rgba(20,20,40,.18)"/>
+    ${yTicks}
+    <line x1="${x(xMid).toFixed(1)}" y1="${PT}" x2="${x(xMid).toFixed(1)}" y2="${H-PB}" stroke="rgba(106,92,255,.35)" stroke-dasharray="4 4"/>
+    <line x1="${PL}" y1="${y(yMid).toFixed(1)}" x2="${W-PR}" y2="${y(yMid).toFixed(1)}" stroke="rgba(106,92,255,.35)" stroke-dasharray="4 4"/>
+    ${xTicks}${dots}</svg><div class="qtip" id="quadTip"></div>`;
+
+  const tip=$('quadTip');
+  box.querySelectorAll('.qp').forEach(g=>{
+    g.addEventListener('mousemove',e=>{
+      const ar=box.getBoundingClientRect();
+      tip.innerHTML=`${g.dataset.name}｜star ${fmtCompact(+g.dataset.stars)}｜30 天 +${fmtNum(+g.dataset.g30)}（涨 ${g.dataset.up}%）｜7 天 +${fmtNum(+g.dataset.g7)}`;
+      tip.style.left=(e.clientX-ar.left)+'px';tip.style.top=(e.clientY-ar.top)+'px';tip.classList.add('show');
+    });
+    g.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+    g.addEventListener('click',()=>window.open('https://github.com/'+g.dataset.name,'_blank'));
+  });
+}
+
+/* ---------- 近 7 天 ---------- */
+function render7(V){
+  const box=$('g7List');
+  const l=V.list.filter(r=>r.gain_7d>0).sort((a,b)=>b.gain_7d-a.gain_7d).slice(0,6);
+  if(!l.length){box.innerHTML='<div class="empty">暂无数据</div>';return;}
+  box.innerHTML=l.map((r,i)=>`<div class="ri" data-repo="${esc(r.full_name)}">
+      <span class="rk">${i+1}</span>
+      <span class="rm"><div class="rn">${esc(r.full_name)}</div><div class="rs">${esc(r.lang||'未标注')} · star ${fmtCompact(r.stars)}</div></span>
+      <span class="rg">+${fmtNum(r.gain_7d)}</span></div>`).join('');
+  bindOpen(box);
+}
+
+/* ---------- star 体量分布 ---------- */
+function renderHist(V){
+  const box=$('histBox');
+  const max=Math.max(...V.hist.map(b=>b.count),1);
+  box.innerHTML=V.hist.map(b=>{
+    const h=Math.max(8,Math.round(b.count/max*50));
+    return `<div class="hb" title="${b.label} star：${b.count} 个仓库，占 ${pct(b.count,V.n)}%">
+      <div class="cnt">${b.count}</div>
+      <div class="bar" style="height:${h}px"></div>
+      <div class="lb">${b.label}</div></div>`;
+  }).join('');
+}
+
+/* ---------- 最新版本 ---------- */
+function renderRel(V){
+  const box=$('relList');
+  const l=V.list.filter(r=>r.latest_version&&r.latest_release_at)
+    .sort((a,b)=>new Date(b.latest_release_at)-new Date(a.latest_release_at)).slice(0,7);
+  $('relHint').textContent=`近 30 天 ${V.rel30} / ${V.n}`;
+  if(!l.length){box.innerHTML='<div class="empty">暂无发布记录</div>';return;}
+  box.innerHTML=l.map(r=>`<div class="ri" data-repo="${esc(r.full_name)}">
+      <span class="rk" style="background:#f0edff;color:var(--brand)">v</span>
+      <span class="rm"><div class="rn">${esc(r.full_name)}</div><div class="rs">${esc(r.latest_version)} · ${ago(r.latest_release_at)}</div></span></div>`).join('');
+  bindOpen(box);
+}
+
+/* ---------- 收藏夹（与榜单页共用 localStorage 键） ---------- */
+function readWatch(){try{return JSON.parse(localStorage.getItem('radar_watch')||'[]')}catch(e){return []}}
+function renderWatch(){
+  const box=$('watchList'), wl=readWatch();
+  $('watchCount').textContent=wl.length;
+  if(!wl.length){box.innerHTML='<div class="empty">还没有收藏 —— 去「榜单与筛选」点「收藏」即可加入</div>';return;}
+  const rows=wl.map(fn=>REPOS.find(x=>x.full_name===fn)).filter(Boolean);
+  if(!rows.length){box.innerHTML='<div class="empty">收藏的项目不在当前数据源中</div>';return;}
+  box.innerHTML=rows.map(r=>`<div class="ri" data-repo="${esc(r.full_name)}">
+      <span class="rk" style="background:#e6f9f3;color:var(--ok)">★</span>
+      <span class="rm"><div class="rn">${esc(r.full_name)}</div><div class="rs">star ${fmtCompact(r.stars)} · 7 天 +${fmtNum(r.gain_7d||0)}</div></span>
+      <span class="rg" style="color:var(--ok)">+${fmtNum(r.gain||0)}</span></div>`).join('');
+  bindOpen(box);
+}
+function bindOpen(box){
+  box.querySelectorAll('.ri').forEach(el=>{el.onclick=()=>window.open('https://github.com/'+el.dataset.repo,'_blank');});
+}
+
+/* ---------- 渲染入口 ---------- */
+let VIEW=null;
+function renderAll(){
+  VIEW=computeView(visible());
+  renderFreshness(VIEW);
+  renderMetrics(VIEW);
+  renderDonut('langDonut','langLegend','langCenter',VIEW.lang,LANG_COLORS,VIEW.n);
+  renderDonut('licDonut','licLegend','licCenter',VIEW.lic,LIC_COLORS,VIEW.n);
+  renderCov(VIEW);
+  renderDaily(VIEW);
+  renderChart(VIEW);
+  renderBig(VIEW);
+  renderQuad(VIEW);
+  render7(VIEW);renderHist(VIEW);renderRel(VIEW);renderWatch();
+}
+
+/* ---------- 交互 ---------- */
+function bindToggle(el){
+  const go=()=>{el.classList.toggle('on');
+    if(el.id==='tgOnlyKnown'&&el.classList.contains('on'))$('tgKnown').classList.remove('on');
+    if(el.id==='tgKnown'&&el.classList.contains('on'))$('tgOnlyKnown').classList.remove('on');
+    renderAll();};
+  el.onclick=go;
+  el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+}
+bindToggle($('tgKnown'));bindToggle($('tgOnlyKnown'));
+$('clearWeek').onclick=()=>{FILTER_WEEK=null;renderAll();};
+window.addEventListener('storage',e=>{if(!e.key||e.key==='radar_watch')renderWatch();});
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(VIEW){renderDaily(VIEW);renderQuad(VIEW);}},150);});
+
+renderAll();
+window.__RADAR_VIEW__=()=>({n:VIEW.n,stars:VIEW.stars,forks:VIEW.forks,gain:VIEW.gain,gain7:VIEW.gain7,gain30:VIEW.gain30,weeks:VIEW.weeks,ready:VIEW.ready,cover:VIEW.cover,lang:VIEW.lang,lic:VIEW.lic,hist:VIEW.hist,weekSum:VIEW.weekSum});
+</script>
+</body>
+</html>
