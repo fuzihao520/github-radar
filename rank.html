@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 飙升雷达 · 榜单与筛选 - 广告人之家</title>
+<style>
+:root{
+  --bg:#f6f6fb; --card:#ffffff; --brand:#6a5cff; --accent:#e2622b;
+  --fg:#1b1b23; --muted:#6b6b7b; --border:rgba(20,20,40,.09);
+  --ok:#12b886; --warn:#f59f00; --danger:#fa5252;
+  --shadow:0 1px 2px rgba(24,24,48,.05),0 8px 24px rgba(24,24,48,.06);
+  --radius:18px;
+  --font:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1420px;margin:0 auto;padding:0 18px}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:60px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:9px;font-weight:900}
+.logo .dot{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:12px}
+.brand-title{font-size:15px;font-weight:900;line-height:1.2}
+.brand-sub{font-size:11.5px;color:var(--muted);font-weight:600}
+.topnav{display:flex;gap:3px;margin-left:6px}
+.topnav a{padding:6px 13px;border-radius:999px;font-size:13px;color:var(--muted);font-weight:700}
+.topnav a:hover{background:#fff;color:var(--fg)}
+.topnav a.active{background:var(--brand);color:#fff}
+.status{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-weight:700}
+.pill-muted{background:#eef0f6;color:var(--muted)}
+.pill-ok{background:#e8f7f1;color:var(--ok)}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero{padding:22px 0 10px}
+.hero .en{color:var(--muted);font-weight:800;font-size:11.5px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-size:24px;font-weight:900;letter-spacing:-.5px}
+.hero p{color:var(--muted);margin-top:3px;font-size:12.5px;max-width:900px}
+
+.filters{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:12px}
+.seg{display:inline-flex;background:#eef0f6;border-radius:999px;padding:3px;gap:2px}
+.seg button{border:none;background:transparent;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer;color:var(--muted);transition:.15s;font-family:var(--font)}
+.seg button.active{background:var(--brand);color:#fff;box-shadow:0 2px 8px rgba(106,92,255,.3)}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:11.5px;color:var(--muted);font-weight:700}
+.field input,.field select{border:1px solid var(--border);border-radius:10px;padding:7px 11px;font-size:13px;font-family:var(--font);outline:none;transition:.15s;background:#fff;color:var(--fg)}
+.field input:focus,.field select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(106,92,255,.12)}
+.btn{border:none;border-radius:999px;padding:8px 18px;font-size:13px;font-weight:800;cursor:pointer;transition:.15s;font-family:var(--font)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:#eef0f6;color:var(--muted)}
+.btn-ghost:hover{background:#e4e6f0}
+.hintbar{display:flex;gap:8px;align-items:flex-start;background:#f7f6ff;border:1px solid rgba(106,92,255,.14);border-radius:12px;padding:9px 13px;font-size:11.5px;color:#4b4b60;line-height:1.55;margin-bottom:14px}
+.hintbar b{color:var(--brand);font-weight:900;white-space:nowrap}
+
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
+.table-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap}
+.table-head h2{font-size:15.5px;font-weight:900}
+.table-head .info{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+table{width:100%;min-width:1020px;border-collapse:collapse;font-size:12.5px}
+thead th{padding:10px 12px;text-align:left;font-weight:800;color:var(--muted);font-size:11.5px;border-bottom:1px solid var(--border);background:#fafafc;white-space:nowrap}
+thead th.sortable{cursor:pointer;user-select:none;padding-right:8px}
+thead th .arrow{font-size:10px;color:#b0b0bd;margin-left:1px}
+thead th.sorted .arrow{color:var(--brand)}
+thead th.sortable:hover{color:var(--fg)}
+thead th.sorted{color:var(--brand)}
+tbody tr{border-bottom:1px solid var(--border);transition:.12s}
+tbody tr:hover{background:#fafafd}
+tbody td{padding:9px 12px;vertical-align:middle}
+.td-rank{text-align:center;font-weight:900;color:var(--muted);font-variant-numeric:tabular-nums;width:46px}
+.td-rank.top3{color:var(--accent)}
+.fn{font-weight:800;display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap}
+.sum{font-size:11px;color:var(--muted);max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{display:inline-block;padding:0 5px;border-radius:5px;font-size:9.5px;font-weight:800;flex-shrink:0}
+.badge-known{background:#6a5cff;color:#fff}
+.badge-new{background:#e2622b;color:#fff}
+.lang-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle}
+.stars-val{font-weight:900;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums;font-weight:800}
+.gain-pos{color:var(--ok)}.gain-neg{color:var(--danger)}.gain-zero{color:var(--muted)}
+.td-actions{white-space:nowrap;text-align:right;padding-right:16px;min-width:132px}
+.act{border:1px solid var(--border);background:#fff;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800;cursor:pointer;color:var(--muted);font-family:var(--font);margin-left:4px}
+.act:hover{border-color:var(--brand);color:var(--brand)}
+.act.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.empty-row td{text-align:center;padding:42px;color:var(--muted)}
+
+.pagination{display:flex;justify-content:center;align-items:center;padding:12px;gap:4px;flex-wrap:wrap}
+.pagination button{border:1px solid var(--border);background:#fff;border-radius:8px;min-width:32px;height:30px;font-size:12.5px;font-weight:800;cursor:pointer;color:var(--fg);font-family:var(--font)}
+.pagination button:disabled{opacity:.4;cursor:not-allowed}
+.pagination button.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.pagination .info{font-size:12.5px;color:var(--muted);margin:0 8px}
+
+footer{margin-top:20px;padding:22px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px}
+footer a{color:var(--brand);font-weight:700}
+@media(max-width:768px){
+  .filters{flex-direction:column;align-items:stretch}
+  table{min-width:860px}
+  .table-wrap>div{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo"><span class="dot">AD</span><span><span class="brand-title">AD·HOME</span><br><span class="brand-sub">GitHub 飙升雷达</span></span></div>
+    <nav class="topnav">
+      <a href="index.html">数据大屏</a>
+      <a href="rank.html" class="active">榜单与筛选</a>
+      <a href="https://www.ggrzj.cn/apps/">更多工具 ↗</a>
+    </nav>
+    <div class="status">
+      <span class="pill pill-muted">快照日 <b id="snapDay">—</b></span>
+      <span class="pill pill-ok"><span class="dot-live"></span>服务在线</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="en">Rankings &amp; Filter</div>
+    <h1>GitHub 飙升雷达 · 榜单与筛选</h1>
+    <p>按日 / 周 / 月 / 总榜查看，配合语言、协议、关键词、star 门槛筛选，找到正在爆发的开源项目。</p>
+  </div>
+
+  <div class="filters">
+    <div class="seg" id="periodSeg">
+      <button type="button" data-period="daily" class="active">日榜</button>
+      <button type="button" data-period="weekly">周榜</button>
+      <button type="button" data-period="monthly">月榜</button>
+      <button type="button" data-period="all">总榜</button>
+    </div>
+    <div class="field"><label for="fLang">语言</label><select id="fLang"><option value="">全部语言</option></select></div>
+    <div class="field"><label for="fLicense">协议</label><select id="fLicense"><option value="">全部协议</option></select></div>
+    <div class="field"><label for="fKeyword">关键词</label><input id="fKeyword" type="text" placeholder="仓库名 / 概要" style="width:172px"></div>
+    <div class="field"><label for="fMinStars">最少 star</label><input id="fMinStars" type="number" placeholder="0" style="width:104px" min="0"></div>
+    <button type="button" class="btn btn-primary" id="btnQuery">查询</button>
+    <button type="button" class="btn btn-ghost" id="btnReset">重置</button>
+  </div>
+
+  <div class="hintbar"><b>怎么读这张表</b><span>日榜看<b>当日新增</b>、周榜看<b>近 7 天</b>、月榜看<b>近 30 天</b>、总榜按<b>star 总量</b>排。增速类列绿色为涨、红色为跌；「最新版本」和「最后更新」用来判断项目是否还在维护。</span></div>
+
+  <div class="table-wrap">
+    <div class="table-head">
+      <h2 id="tableTitle">日榜 · 飙升排行</h2>
+      <span class="info" id="tableInfo">共 — 条</span>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:46px;text-align:center">#</th>
+            <th>仓库 · 概要</th>
+            <th>语言</th>
+            <th>协议</th>
+            <th class="sortable" data-sort="stars">star 总量 <span class="arrow">↕</span></th>
+            <th class="sortable sorted" data-sort="gain">日新增 <span class="arrow">↕</span></th>
+            <th class="sortable" data-sort="gain_7d">近 7 天 <span class="arrow">↕</span></th>
+            <th class="sortable" data-sort="gain_30d">30 天 <span class="arrow">↕</span></th>
+            <th>最新版本</th>
+            <th>最后更新</th>
+            <th style="text-align:right">操作</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">© 广告人之家 ggrzj.cn · GitHub 飙升雷达 · 本地运行 零上传 · <a href="https://www.ggrzj.cn/apps/">返回工具箱</a></div>
+</footer>
+
+<script src="radar-data.js"></script>
+<script>
+const D=window.RADAR_DATA;
+if(!D){document.body.innerHTML='<p style="padding:40px;font:14px/1.7 sans-serif">数据文件 radar-data.js 未加载，请与本页放在同一目录。</p>';throw new Error('RADAR_DATA missing');}
+const $=id=>document.getElementById(id);
+const REPOS=D.repos;
+const knownSet=new Set(D.known.map(s=>s.toLowerCase()));
+const fmtNum=n=>(n==null?'—':Number(n).toLocaleString('en-US'));
+function fmtCompact(n){if(n==null)return'—';n=Number(n);
+  if(n>=1e6)return(n/1e6).toFixed(2).replace(/\.?0+$/,'')+'M';
+  if(n>=1e3)return(n/1e3).toFixed(1).replace(/\.0$/,'')+'k';return String(n);}
+const dateOnly=ts=>ts?String(ts).slice(0,10):'—';
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LANG_COLORS={'JavaScript':'#f1e05a','TypeScript':'#3178c6','Python':'#3572A5','Go':'#00ADD8','Rust':'#dea584','Java':'#b07219','C++':'#f34b7d','C':'#555555','C#':'#178600','PHP':'#4F5D95','Ruby':'#701516','Swift':'#F05138','Kotlin':'#A97BFF','Shell':'#89e051','Zig':'#ec915c'};
+
+let PERIOD='daily', SORT_KEY='gain', SORT_DESC=true;
+let PAGE=1; const PAGE_SIZE=20;
+let FILTER={lang:'',license:'',keyword:'',minStars:0};
+let WL=readWatch();
+
+function readWatch(){try{return JSON.parse(localStorage.getItem('radar_watch')||'[]')}catch(e){return []}}
+function saveWatch(){try{localStorage.setItem('radar_watch',JSON.stringify(WL))}catch(e){}}
+
+/* 下拉：从数据源的真实取值生成，不写死 */
+(function initSelects(){
+  const langs=new Set(), lics=new Set();
+  REPOS.forEach(r=>{if(r.lang)langs.add(r.lang);if(r.license_spdx)lics.add(r.license_spdx);});
+  [...langs].sort().forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;$('fLang').appendChild(o);});
+  [...lics].sort().forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;$('fLicense').appendChild(o);});
+})();
+
+const PERIOD_CFG={
+  daily:{col:'gain',title:'日榜',sub:'当日新增'},
+  weekly:{col:'gain_7d',title:'周榜',sub:'近 7 天'},
+  monthly:{col:'gain_30d',title:'月榜',sub:'近 30 天'},
+  all:{col:'stars',title:'总榜',sub:'star 总量'}
+};
+function filtered(){
+  let list=REPOS.slice();
+  if(FILTER.lang)list=list.filter(r=>r.lang===FILTER.lang);
+  if(FILTER.license)list=list.filter(r=>r.license_spdx===FILTER.license);
+  if(FILTER.minStars>0)list=list.filter(r=>(r.stars||0)>=FILTER.minStars);
+  if(FILTER.keyword){
+    const kw=FILTER.keyword.toLowerCase();
+    list=list.filter(r=>(r.full_name||'').toLowerCase().includes(kw)||(r.summary||'').toLowerCase().includes(kw));
+  }
+  list.sort((a,b)=>{const av=a[SORT_KEY]||0,bv=b[SORT_KEY]||0;return SORT_DESC?bv-av||b.stars-a.stars:av-bv||a.stars-b.stars;});
+  return list;
+}
+const gainClass=v=>v>0?'gain-pos':(v<0?'gain-neg':'gain-zero');
+const gainText=v=>v>0?'+'+fmtNum(v):fmtNum(v);
+
+function render(){
+  const list=filtered(), total=list.length;
+  const pages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if(PAGE>pages)PAGE=pages;
+  const start=(PAGE-1)*PAGE_SIZE, rows=list.slice(start,start+PAGE_SIZE);
+  const cfg=PERIOD_CFG[PERIOD];
+  $('tableTitle').textContent=`${cfg.title} · 飙升排行`;
+  /* 合计口径：当前筛选下的全部条目（不是当前页），文案里写清楚，避免与分页混淆 */
+  const scopeGain=list.reduce((a,r)=>a+(r[cfg.col]||0),0);
+  $('tableInfo').textContent=`共 ${fmtNum(total)} 条 · 第 ${PAGE}/${pages} 页 · 当前筛选「${cfg.sub}」合计 ${PERIOD==='all'?fmtCompact(scopeGain):'+'+fmtNum(scopeGain)}`;
+  $('snapDay').textContent=D.meta.snapshot_day;
+
+  const tbody=$('tableBody');
+  if(!rows.length){
+    tbody.innerHTML='<tr class="empty-row"><td colspan="11">当前筛选下没有匹配的项目，试试放宽条件</td></tr>';
+  }else{
+    tbody.innerHTML=rows.map((r,i)=>{
+      const rank=start+i+1, isK=knownSet.has((r.full_name||'').toLowerCase()), fav=WL.includes(r.full_name);
+      return `<tr>
+        <td class="td-rank ${rank<=3?'top3':''}">${rank}</td>
+        <td>
+          <div class="fn" data-open="${esc(r.full_name)}">${esc(r.full_name)}${isK?'<span class="badge badge-known">知名</span>':''}${r.is_new?'<span class="badge badge-new">NEW</span>':''}</div>
+          <div class="sum" title="${esc(r.summary||'')}">${esc(r.summary||'暂无概要')}</div>
+        </td>
+        <td>${r.lang?`<span class="lang-dot" style="background:${LANG_COLORS[r.lang]||'#999'}"></span>${esc(r.lang)}`:'—'}</td>
+        <td>${esc(r.license_spdx||'—')}</td>
+        <td><span class="stars-val">${fmtCompact(r.stars)}</span></td>
+        <td><span class="num ${gainClass(r.gain)}">${gainText(r.gain||0)}</span></td>
+        <td><span class="num ${gainClass(r.gain_7d)}">${r.gain_7d!=null?gainText(r.gain_7d):'—'}</span></td>
+        <td><span class="num ${gainClass(r.gain_30d)}">${r.gain_30d!=null?gainText(r.gain_30d):'—'}</span></td>
+        <td>${esc(r.latest_version||'—')}</td>
+        <td>${dateOnly(r.repo_updated_at)}</td>
+        <td class="td-actions">
+          <button type="button" class="act ${fav?'on':''}" data-fav="${esc(r.full_name)}">${fav?'已收藏':'收藏'}</button>
+          <a class="act" href="https://github.com/${esc(r.full_name)}" target="_blank" rel="noopener">GitHub ↗</a>
+        </td></tr>`;
+    }).join('');
+  }
+
+  /* 分页 */
+  const pg=$('pagination');pg.innerHTML='';
+  const mkBtn=(txt,page,active,disabled)=>{
+    const b=document.createElement('button');b.type='button';b.textContent=txt;
+    if(active)b.className='active';
+    b.disabled=!!disabled;
+    b.onclick=()=>{if(!disabled){PAGE=page;render();window.scrollTo({top:0,behavior:'smooth'});}};
+    pg.appendChild(b);
+  };
+  if(pages>1){
+    mkBtn('‹',PAGE-1,false,PAGE<=1);
+    const maxShow=7;let s=Math.max(1,PAGE-3),e=Math.min(pages,s+maxShow-1);if(e-s<maxShow-1)s=Math.max(1,e-maxShow+1);
+    if(s>1){mkBtn('1',1,false,false);if(s>2)pg.insertAdjacentHTML('beforeend','<span class="info">…</span>');}
+    for(let i=s;i<=e;i++)mkBtn(String(i),i,i===PAGE,false);
+    if(e<pages){if(e<pages-1)pg.insertAdjacentHTML('beforeend','<span class="info">…</span>');mkBtn(String(pages),pages,false,false);}
+    mkBtn('›',PAGE+1,false,PAGE>=pages);
+  }
+
+  document.querySelectorAll('th.sortable').forEach(th=>{
+    th.classList.toggle('sorted',th.dataset.sort===SORT_KEY);
+    th.querySelector('.arrow').textContent=th.dataset.sort===SORT_KEY?(SORT_DESC?'↓':'↑'):'↕';
+  });
+}
+
+/* 事件委托：行内收藏 / 打开仓库 */
+$('tableBody').addEventListener('click',e=>{
+  const fav=e.target.closest('[data-fav]');
+  if(fav){
+    const fn=fav.dataset.fav;
+    WL=WL.includes(fn)?WL.filter(x=>x!==fn):[...WL,fn];
+    saveWatch();render();return;
+  }
+  const open=e.target.closest('[data-open]');
+  if(open)window.open('https://github.com/'+open.dataset.open,'_blank');
+});
+
+$('periodSeg').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#periodSeg button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  PERIOD=b.dataset.period;SORT_KEY=PERIOD_CFG[PERIOD].col;SORT_DESC=true;PAGE=1;render();
+});
+document.querySelectorAll('th.sortable').forEach(th=>{
+  th.onclick=()=>{const k=th.dataset.sort;
+    if(SORT_KEY===k)SORT_DESC=!SORT_DESC;else{SORT_KEY=k;SORT_DESC=true;}
+    PAGE=1;render();};
+});
+function applyFilter(){
+  FILTER={lang:$('fLang').value,license:$('fLicense').value,keyword:$('fKeyword').value.trim(),minStars:Number($('fMinStars').value)||0};
+  PAGE=1;render();
+}
+$('btnQuery').onclick=applyFilter;
+$('fLang').onchange=applyFilter;$('fLicense').onchange=applyFilter;
+$('btnReset').onclick=()=>{
+  $('fLang').value='';$('fLicense').value='';$('fKeyword').value='';$('fMinStars').value='';
+  FILTER={lang:'',license:'',keyword:'',minStars:0};
+  PERIOD='daily';SORT_KEY='gain';SORT_DESC=true;PAGE=1;
+  document.querySelectorAll('#periodSeg button').forEach(x=>x.classList.toggle('active',x.dataset.period==='daily'));
+  render();
+};
+$('fKeyword').addEventListener('keydown',e=>{if(e.key==='Enter')applyFilter();});
+window.addEventListener('storage',e=>{if(!e.key||e.key==='radar_watch'){WL=readWatch();render();}});
+
+render();
+</script>
+</body>
+</html>
