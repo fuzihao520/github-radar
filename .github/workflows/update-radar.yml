@@ -1,0 +1,75 @@
+name: 更新 GitHub 飙升雷达
+
+# 每天 08:10（北京时间）跑一次，也可手动触发
+on:
+  schedule:
+    - cron: "10 0 * * *"   # UTC 00:10 = 北京 08:10
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "只抓前 N 个仓库（调试用，留空=全部）"
+        required: false
+        default: ""
+
+# 需要写仓库权限来提交更新后的数据
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-update
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 准备 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 采集 GitHub 数据
+        env:
+          # 用内置 token 即可：公开数据 + 5000 次/小时配额
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS="--limit=${{ github.event.inputs.limit }}"
+          fi
+          node scripts/fetch-radar.mjs $ARGS
+
+      - name: 校验产物
+        run: |
+          test -f radar-data.js || { echo "radar-data.js 未生成"; exit 1; }
+          test -d history || { echo "history 目录缺失"; exit 1; }
+          node -e '
+            const fs=require("fs");
+            const src=fs.readFileSync("radar-data.js","utf8");
+            const m=src.match(/window\.RADAR_DATA\s*=\s*(\{[\s\S]*\});\s*$/);
+            if(!m){console.error("radar-data.js 格式不正确");process.exit(1);}
+            const d=JSON.parse(m[1]);
+            if(!Array.isArray(d.repos)||d.repos.length===0){console.error("repos 为空");process.exit(1);}
+            const bad=d.repos.filter(r=>typeof r.stars!=="number"||!r.full_name);
+            if(bad.length){console.error("存在无效记录",bad.length);process.exit(1);}
+            const dup=new Set(); 
+            for(const r of d.repos){ if(dup.has(r.full_name)){console.error("重复仓库",r.full_name);process.exit(1);} dup.add(r.full_name); }
+            console.log("OK repos="+d.repos.length+" history_days="+d.meta.history_days);
+          '
+
+      - name: 提交更新
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add radar-data.js history/
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git commit -m "data: 更新飙升雷达 $(date -u +%Y-%m-%d)"
+            git push
+          fi
