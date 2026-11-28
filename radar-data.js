@@ -1,12 +1,12 @@
 /* ============================================================
    GitHub 飙升雷达 · 数据（由 scripts/fetch-radar.mjs 自动生成）
-   生成时间：2026-11-27T08:13:12.421Z
+   生成时间：2026-11-28T07:37:13.099Z
    请勿手工编辑；改 radar.config.json 后重新运行采集器即可。
    ============================================================ */
 window.RADAR_DATA = {
  "meta": {
-  "snapshot_day": "2026-11-27",
-  "sync_at": "2026-11-27T08:13:12.421Z",
+  "snapshot_day": "2026-11-28",
+  "sync_at": "2026-11-28T07:37:13.099Z",
   "source": "GitHub REST API v2022-11-28",
   "discovery": {
    "mode": "topic",
@@ -21,7 +21,7 @@ window.RADAR_DATA = {
    ],
    "minStars": 500
   },
-  "history_days": 11,
+  "history_days": 12,
   "has_7d": true,
   "has_30d": false,
   "note": "历史不足 30 天，30 天增量为 0（数据积累中）"
@@ -33,8 +33,8 @@ window.RADAR_DATA = {
  "weeks": [
   "—",
   "—",
-  "11/20",
-  "11/26"
+  "11/21",
+  "11/27"
  ],
  "known": [
   "morluto/rea",
@@ -51,8 +51,8 @@ window.RADAR_DATA = {
   "f/prompts.chat",
   "huggingface/transformers",
   "langgenius/dify",
-  "Snailclimb/JavaGuide",
   "open-webui/open-webui",
+  "Snailclimb/JavaGuide",
   "farion1231/cc-switch",
   "Graphify-Labs/graphify",
   "github/spec-kit",
@@ -66,8 +66,8 @@ window.RADAR_DATA = {
   "microsoft/generative-ai-for-beginners",
   "TauricResearch/TradingAgents",
   "JuliusBrussee/caveman",
-  "browser-use/browser-use",
   "Leonxlnx/taste-skill",
+  "browser-use/browser-use",
   "thedotmack/claude-mem",
   "debpalash/VoiceStudio",
   "pbakaus/impeccable",
@@ -85,8 +85,8 @@ window.RADAR_DATA = {
   "infiniflow/ragflow",
   "OpenHands/OpenHands",
   "PaddlePaddle/PaddleOCR",
-  "koala73/worldmonitor",
   "heygen-com/hyperframes",
+  "koala73/worldmonitor",
   "cheaper-inference/OmniRoute",
   "Ebony-Vinyl/dsh-our-free-model",
   "datawhalechina/hello-agents",
@@ -96,11 +96,11 @@ window.RADAR_DATA = {
   "bytedance/deer-flow",
   "OpenMontageInc/OpenMontage",
   "ruvnet/ruflo",
-  "netdata/netdata",
   "pingdotgg/t3code",
+  "netdata/netdata",
   "microsoft/ai-agents-for-beginners",
-  "shareAI-lab/learn-claude-code",
   "headroomlabs-ai/headroom",
+  "shareAI-lab/learn-claude-code",
   "rohitg00/ai-engineering-from-scratch",
   "ComposioHQ/awesome-claude-skills",
   "unslothai/unsloth",
@@ -162,8 +162,8 @@ window.RADAR_DATA = {
   "f/prompts.chat",
   "huggingface/transformers",
   "langgenius/dify",
-  "Snailclimb/JavaGuide",
   "open-webui/open-webui",
+  "Snailclimb/JavaGuide",
   "farion1231/cc-switch",
   "Graphify-Labs/graphify",
   "github/spec-kit",
@@ -177,8 +177,8 @@ window.RADAR_DATA = {
   "microsoft/generative-ai-for-beginners",
   "TauricResearch/TradingAgents",
   "JuliusBrussee/caveman",
-  "browser-use/browser-use",
   "Leonxlnx/taste-skill",
+  "browser-use/browser-use",
   "thedotmack/claude-mem",
   "debpalash/VoiceStudio",
   "pbakaus/impeccable",
@@ -196,8 +196,8 @@ window.RADAR_DATA = {
   "infiniflow/ragflow",
   "OpenHands/OpenHands",
   "PaddlePaddle/PaddleOCR",
-  "koala73/worldmonitor",
   "heygen-com/hyperframes",
+  "koala73/worldmonitor",
   "cheaper-inference/OmniRoute",
   "Ebony-Vinyl/dsh-our-free-model",
   "datawhalechina/hello-agents",
@@ -207,11 +207,11 @@ window.RADAR_DATA = {
   "bytedance/deer-flow",
   "OpenMontageInc/OpenMontage",
   "ruvnet/ruflo",
-  "netdata/netdata",
   "pingdotgg/t3code",
+  "netdata/netdata",
   "microsoft/ai-agents-for-beginners",
-  "shareAI-lab/learn-claude-code",
   "headroomlabs-ai/headroom",
+  "shareAI-lab/learn-claude-code",
   "rohitg00/ai-engineering-from-scratch",
   "ComposioHQ/awesome-claude-skills",
   "unslothai/unsloth",
@@ -262,23 +262,24 @@ window.RADAR_DATA = {
   "jeecgboot/JeecgBoot",
   "anthropics/claude-plugins-official",
   "zhayujie/CowAgent",
+  "ifixai-ai/iFixAi",
   "AstrBotDevs/AstrBot",
   "LibreChat-AI/LibreChat",
-  "ifixai-ai/iFixAi",
   "siyuan-note/siyuan",
-  "milvus-io/milvus"
+  "milvus-io/milvus",
+  "janhq/jan"
  ],
  "repos": [
   {
    "full_name": "morluto/rea",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 480259,
-   "forks": 116700,
+   "stars": 481421,
+   "forks": 116904,
    "summary": "Reverse engineer anything with agents, from app behavior down to native binaries.",
    "latest_version": "rea-agents-6.10.1",
    "latest_release_at": "2026-11-20T05:30:51Z",
-   "repo_updated_at": "2026-11-27T08:09:47Z",
+   "repo_updated_at": "2026-11-28T07:35:44Z",
    "topics": [
     "agent-skills",
     "ai",
@@ -304,26 +305,26 @@ window.RADAR_DATA = {
    "homepage": "https://rea.tools",
    "archived": false,
    "is_new": false,
-   "gain": 1375,
-   "gain_7d": 9823,
+   "gain": 1162,
+   "gain_7d": 9616,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    8448
+    8454
    ]
   },
   {
    "full_name": "openclaw/openclaw",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 395322,
-   "forks": 83011,
+   "stars": 395364,
+   "forks": 83014,
    "summary": "The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 ",
    "latest_version": "v2026.11.10",
    "latest_release_at": "2026-11-25T05:42:47Z",
-   "repo_updated_at": "2026-11-27T08:11:23Z",
+   "repo_updated_at": "2026-11-28T07:34:29Z",
    "topics": [
     "ai",
     "assistant",
@@ -336,26 +337,26 @@ window.RADAR_DATA = {
    "homepage": "https://openclaw.ai",
    "archived": false,
    "is_new": false,
-   "gain": 72,
-   "gain_7d": 458,
+   "gain": 42,
+   "gain_7d": 427,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    386
+    385
    ]
   },
   {
    "full_name": "obra/superpowers",
    "lang": "Shell",
    "license_spdx": "MIT",
-   "stars": 327758,
-   "forks": 29087,
+   "stars": 328529,
+   "forks": 29201,
    "summary": "An agentic skills framework & software development methodology that works.",
    "latest_version": "v7.0.2",
    "latest_release_at": "2026-11-03T22:17:54Z",
-   "repo_updated_at": "2026-11-26T11:33:33Z",
+   "repo_updated_at": "2026-11-28T05:13:56Z",
    "topics": [
     "ai",
     "brainstorming",
@@ -369,22 +370,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 863,
-   "gain_7d": 5459,
+   "gain": 771,
+   "gain_7d": 5538,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    4596
+    4767
    ]
   },
   {
    "full_name": "affaan-m/ECC",
    "lang": "JavaScript",
    "license_spdx": "MIT",
-   "stars": 311455,
-   "forks": 45759,
+   "stars": 312031,
+   "forks": 45838,
    "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
    "latest_version": "v2.2.3",
    "latest_release_at": "2026-10-01T23:00:36Z",
@@ -402,22 +403,22 @@ window.RADAR_DATA = {
    "homepage": "https://ecc.tools",
    "archived": false,
    "is_new": false,
-   "gain": 562,
-   "gain_7d": 4046,
+   "gain": 576,
+   "gain_7d": 4059,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    3484
+    3483
    ]
   },
   {
    "full_name": "deepseek-ai/deepseek-harness",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 287802,
-   "forks": 35939,
+   "stars": 288164,
+   "forks": 36001,
    "summary": "DeepSeek Harness: Everything is a Plugin.",
    "latest_version": null,
    "latest_release_at": null,
@@ -431,26 +432,26 @@ window.RADAR_DATA = {
    "homepage": "https://deepseek.com/harness",
    "archived": false,
    "is_new": false,
-   "gain": 537,
-   "gain_7d": 3420,
+   "gain": 362,
+   "gain_7d": 3363,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    2883
+    3001
    ]
   },
   {
    "full_name": "NousResearch/hermes-agent",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 266482,
-   "forks": 60464,
+   "stars": 266635,
+   "forks": 60530,
    "summary": "The agent that grows with you",
-   "latest_version": "v0.23.4",
-   "latest_release_at": "2026-11-24T08:17:06Z",
-   "repo_updated_at": "2026-11-27T08:08:11Z",
+   "latest_version": "v0.23.5",
+   "latest_release_at": "2026-11-28T03:20:13Z",
+   "repo_updated_at": "2026-11-28T07:16:19Z",
    "topics": [
     "ai",
     "ai-agent",
@@ -469,26 +470,26 @@ window.RADAR_DATA = {
    "homepage": "https://hermes-agent.nousresearch.com",
    "archived": false,
    "is_new": false,
-   "gain": 290,
-   "gain_7d": 1656,
+   "gain": 153,
+   "gain_7d": 1588,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1366
+    1435
    ]
   },
   {
    "full_name": "n8n-io/n8n",
    "lang": "TypeScript",
    "license_spdx": null,
-   "stars": 212373,
-   "forks": 61687,
+   "stars": 212352,
+   "forks": 61690,
    "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-   "latest_version": "n8n@2.49.7",
-   "latest_release_at": "2026-11-26T07:23:34Z",
-   "repo_updated_at": "2026-11-27T08:10:47Z",
+   "latest_version": "n8n@2.49.8",
+   "latest_release_at": "2026-11-27T08:18:25Z",
+   "repo_updated_at": "2026-11-28T07:31:55Z",
    "topics": [
     "ai",
     "apis",
@@ -514,26 +515,26 @@ window.RADAR_DATA = {
    "homepage": "https://n8n.io",
    "archived": false,
    "is_new": false,
-   "gain": 193,
-   "gain_7d": 907,
+   "gain": 0,
+   "gain_7d": 791,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    714
+    812
    ]
   },
   {
    "full_name": "firecrawl/firecrawl",
    "lang": "TypeScript",
    "license_spdx": "AGPL-3.0",
-   "stars": 211188,
-   "forks": 11072,
+   "stars": 211856,
+   "forks": 11154,
    "summary": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
    "latest_version": "v2.11.0",
    "latest_release_at": "2026-06-19T15:09:30Z",
-   "repo_updated_at": "2026-11-27T00:15:09Z",
+   "repo_updated_at": "2026-11-28T03:38:47Z",
    "topics": [
     "ai",
     "ai-agents",
@@ -558,22 +559,22 @@ window.RADAR_DATA = {
    "homepage": "https://firecrawl.dev",
    "archived": false,
    "is_new": false,
-   "gain": 827,
-   "gain_7d": 6661,
+   "gain": 668,
+   "gain_7d": 6347,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    5834
+    5679
    ]
   },
   {
    "full_name": "DietrichGebert/ponytail",
    "lang": "JavaScript",
    "license_spdx": "MIT",
-   "stars": 199556,
-   "forks": 11337,
+   "stars": 200305,
+   "forks": 11397,
    "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
    "latest_version": "v5.3.3",
    "latest_release_at": "2026-10-29T03:11:08Z",
@@ -593,26 +594,26 @@ window.RADAR_DATA = {
    "homepage": "https://ponytail.dev",
    "archived": false,
    "is_new": false,
-   "gain": 632,
-   "gain_7d": 4496,
+   "gain": 749,
+   "gain_7d": 4523,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    3864
+    3774
    ]
   },
   {
    "full_name": "ollama/ollama",
    "lang": "Go",
    "license_spdx": "MIT",
-   "stars": 188276,
-   "forks": 19225,
+   "stars": 188345,
+   "forks": 19250,
    "summary": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
-   "latest_version": "v0.40.18",
-   "latest_release_at": "2026-11-24T04:18:13Z",
-   "repo_updated_at": "2026-11-26T19:40:41Z",
+   "latest_version": "v0.40.19",
+   "latest_release_at": "2026-11-26T17:52:02Z",
+   "repo_updated_at": "2026-11-28T04:13:22Z",
    "topics": [
     "deepseek",
     "gemma",
@@ -632,26 +633,26 @@ window.RADAR_DATA = {
    "homepage": "https://ollama.com",
    "archived": false,
    "is_new": false,
-   "gain": 104,
-   "gain_7d": 580,
+   "gain": 69,
+   "gain_7d": 555,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    476
+    486
    ]
   },
   {
    "full_name": "Significant-Gravitas/AutoGPT",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 188205,
-   "forks": 45833,
+   "stars": 188217,
+   "forks": 45826,
    "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
    "latest_version": "autogpt-platform-beta-v0.12.1",
    "latest_release_at": "2026-11-26T09:11:17Z",
-   "repo_updated_at": "2026-11-27T08:08:04Z",
+   "repo_updated_at": "2026-11-28T07:24:26Z",
    "topics": [
     "agentic-ai",
     "agents",
@@ -668,26 +669,26 @@ window.RADAR_DATA = {
    "homepage": "https://agpt.co",
    "archived": false,
    "is_new": false,
-   "gain": 0,
-   "gain_7d": 90,
+   "gain": 12,
+   "gain_7d": 97,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    90
+    85
    ]
   },
   {
    "full_name": "f/prompts.chat",
    "lang": "MDX",
    "license_spdx": null,
-   "stars": 178635,
-   "forks": 22761,
+   "stars": 178728,
+   "forks": 22768,
    "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
    "latest_version": null,
    "latest_release_at": null,
-   "repo_updated_at": "2026-11-27T03:13:20Z",
+   "repo_updated_at": "2026-11-28T06:59:45Z",
    "topics": [
     "ai",
     "artificial-intelligence",
@@ -711,26 +712,26 @@ window.RADAR_DATA = {
    "homepage": "https://prompts.chat",
    "archived": false,
    "is_new": false,
-   "gain": 90,
-   "gain_7d": 708,
+   "gain": 93,
+   "gain_7d": 636,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    618
+    543
    ]
   },
   {
    "full_name": "huggingface/transformers",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 169389,
-   "forks": 35319,
+   "stars": 169317,
+   "forks": 35329,
    "summary": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
    "latest_version": "v5.24.1",
    "latest_release_at": "2026-11-24T16:13:08Z",
-   "repo_updated_at": "2026-11-27T08:08:49Z",
+   "repo_updated_at": "2026-11-28T06:00:15Z",
    "topics": [
     "audio",
     "deep-learning",
@@ -755,26 +756,26 @@ window.RADAR_DATA = {
    "homepage": "https://huggingface.co/transformers",
    "archived": false,
    "is_new": false,
-   "gain": 40,
-   "gain_7d": 83,
+   "gain": 0,
+   "gain_7d": 0,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    43
+    54
    ]
   },
   {
    "full_name": "langgenius/dify",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 161985,
-   "forks": 25564,
+   "stars": 162037,
+   "forks": 25571,
    "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
    "latest_version": "1.20.0",
    "latest_release_at": "2026-11-18T09:55:28Z",
-   "repo_updated_at": "2026-11-27T08:10:19Z",
+   "repo_updated_at": "2026-11-28T06:15:49Z",
    "topics": [
     "agent",
     "agentic-ai",
@@ -799,64 +800,26 @@ window.RADAR_DATA = {
    "homepage": "https://dify.ai",
    "archived": false,
    "is_new": false,
-   "gain": 54,
-   "gain_7d": 439,
+   "gain": 52,
+   "gain_7d": 440,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    385
-   ]
-  },
-  {
-   "full_name": "Snailclimb/JavaGuide",
-   "lang": "JavaScript",
-   "license_spdx": "Apache-2.0",
-   "stars": 159691,
-   "forks": 46083,
-   "summary": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
-   "latest_version": null,
-   "latest_release_at": null,
-   "repo_updated_at": "2026-10-25T11:47:10Z",
-   "topics": [
-    "agent",
-    "ai",
-    "context-engineering",
-    "deepseek",
-    "interview",
-    "java",
-    "mcp",
-    "mysql",
-    "redis",
-    "redisson",
-    "skills",
-    "springai",
-    "system-design"
-   ],
-   "homepage": "https://javaguide.cn",
-   "archived": false,
-   "is_new": false,
-   "gain": 8,
-   "gain_7d": 66,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    58
+    388
    ]
   },
   {
    "full_name": "open-webui/open-webui",
    "lang": "Svelte",
    "license_spdx": null,
-   "stars": 159664,
-   "forks": 23162,
+   "stars": 159705,
+   "forks": 23173,
    "summary": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
    "latest_version": "v0.13.5",
    "latest_release_at": "2026-11-25T09:37:55Z",
-   "repo_updated_at": "2026-11-27T00:38:20Z",
+   "repo_updated_at": "2026-11-27T16:00:01Z",
    "topics": [
     "ai",
     "llm",
@@ -877,26 +840,64 @@ window.RADAR_DATA = {
    "homepage": "https://openwebui.com",
    "archived": false,
    "is_new": false,
-   "gain": 72,
-   "gain_7d": 543,
+   "gain": 41,
+   "gain_7d": 518,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    471
+    477
+   ]
+  },
+  {
+   "full_name": "Snailclimb/JavaGuide",
+   "lang": "JavaScript",
+   "license_spdx": "Apache-2.0",
+   "stars": 159698,
+   "forks": 46085,
+   "summary": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
+   "latest_version": null,
+   "latest_release_at": null,
+   "repo_updated_at": "2026-11-27T13:17:09Z",
+   "topics": [
+    "agent",
+    "ai",
+    "context-engineering",
+    "deepseek",
+    "interview",
+    "java",
+    "mcp",
+    "mysql",
+    "redis",
+    "redisson",
+    "skills",
+    "springai",
+    "system-design"
+   ],
+   "homepage": "https://javaguide.cn",
+   "archived": false,
+   "is_new": false,
+   "gain": 7,
+   "gain_7d": 67,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    60
    ]
   },
   {
    "full_name": "farion1231/cc-switch",
    "lang": "Rust",
    "license_spdx": "MIT",
-   "stars": 157538,
-   "forks": 10289,
+   "stars": 157723,
+   "forks": 10309,
    "summary": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode,DeepSeek Harness and more. Only official website: ccswitch.io",
-   "latest_version": "v4.0.43",
-   "latest_release_at": "2026-11-26T15:29:48Z",
-   "repo_updated_at": "2026-11-27T04:10:05Z",
+   "latest_version": "v4.0.44",
+   "latest_release_at": "2026-11-27T15:51:55Z",
+   "repo_updated_at": "2026-11-27T15:31:11Z",
    "topics": [
     "ai-tools",
     "claude-code",
@@ -921,26 +922,26 @@ window.RADAR_DATA = {
    "homepage": "https://ccswitch.io",
    "archived": false,
    "is_new": false,
-   "gain": 225,
-   "gain_7d": 1632,
+   "gain": 185,
+   "gain_7d": 1642,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1407
+    1457
    ]
   },
   {
    "full_name": "Graphify-Labs/graphify",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 153971,
-   "forks": 14820,
+   "stars": 154345,
+   "forks": 14853,
    "summary": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
-   "latest_version": "v0.9.121",
-   "latest_release_at": "2026-11-26T19:38:53Z",
-   "repo_updated_at": "2026-11-27T02:53:36Z",
+   "latest_version": "v0.9.122",
+   "latest_release_at": "2026-11-28T03:55:02Z",
+   "repo_updated_at": "2026-11-28T04:04:49Z",
    "topics": [
     "ai-agents",
     "antigravity",
@@ -966,22 +967,22 @@ window.RADAR_DATA = {
    "homepage": "graphify.com",
    "archived": false,
    "is_new": false,
-   "gain": 457,
-   "gain_7d": 3200,
+   "gain": 374,
+   "gain_7d": 3055,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    2743
+    2681
    ]
   },
   {
    "full_name": "github/spec-kit",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 151835,
-   "forks": 13644,
+   "stars": 152408,
+   "forks": 13687,
    "summary": "💫 Toolkit to help you get started with SDD or any other process!",
    "latest_version": "v1.4.5",
    "latest_release_at": "2026-11-25T17:43:41Z",
@@ -998,26 +999,26 @@ window.RADAR_DATA = {
    "homepage": "https://github.github.com/spec-kit/",
    "archived": false,
    "is_new": false,
-   "gain": 409,
-   "gain_7d": 1097,
+   "gain": 573,
+   "gain_7d": 1552,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    688
+    979
    ]
   },
   {
    "full_name": "langchain-ai/langchain",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 150059,
-   "forks": 25180,
+   "stars": 150095,
+   "forks": 25185,
    "summary": "The agent engineering platform.",
    "latest_version": "langchain-core==1.8.5",
    "latest_release_at": "2026-11-25T21:52:39Z",
-   "repo_updated_at": "2026-11-27T08:10:37Z",
+   "repo_updated_at": "2026-11-28T02:14:10Z",
    "topics": [
     "agents",
     "ai",
@@ -1043,26 +1044,26 @@ window.RADAR_DATA = {
    "homepage": "https://docs.langchain.com/langchain/",
    "archived": false,
    "is_new": false,
-   "gain": 46,
-   "gain_7d": 114,
+   "gain": 36,
+   "gain_7d": 108,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    68
+    72
    ]
   },
   {
    "full_name": "Comfy-Org/ComfyUI",
    "lang": "Python",
    "license_spdx": "GPL-3.0",
-   "stars": 148822,
-   "forks": 17734,
+   "stars": 148962,
+   "forks": 17758,
    "summary": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
    "latest_version": "v0.46.0",
    "latest_release_at": "2026-11-18T22:55:32Z",
-   "repo_updated_at": "2026-11-27T07:28:00Z",
+   "repo_updated_at": "2026-11-28T06:23:15Z",
    "topics": [
     "ai",
     "comfy",
@@ -1074,26 +1075,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.comfy.org/",
    "archived": false,
    "is_new": false,
-   "gain": 157,
-   "gain_7d": 1097,
+   "gain": 140,
+   "gain_7d": 1092,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    940
+    952
    ]
   },
   {
    "full_name": "harry0703/MoneyPrinterTurbo",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 145916,
-   "forks": 23498,
+   "stars": 146051,
+   "forks": 23544,
    "summary": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
    "latest_version": "v1.3.11",
    "latest_release_at": "2026-11-23T06:29:51Z",
-   "repo_updated_at": "2026-11-27T06:30:42Z",
+   "repo_updated_at": "2026-11-28T00:04:34Z",
    "topics": [
     "ai-video-generator",
     "content-creation",
@@ -1113,22 +1114,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 141,
-   "gain_7d": 1160,
+   "gain": 135,
+   "gain_7d": 1182,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1019
+    1047
    ]
   },
   {
    "full_name": "Shubhamsaboo/awesome-llm-apps",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 145887,
-   "forks": 21479,
+   "stars": 145985,
+   "forks": 21506,
    "summary": "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source.",
    "latest_version": null,
    "latest_release_at": null,
@@ -1142,22 +1143,22 @@ window.RADAR_DATA = {
    "homepage": "https://www.theunwindai.com",
    "archived": false,
    "is_new": false,
-   "gain": 130,
-   "gain_7d": 780,
+   "gain": 98,
+   "gain_7d": 744,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    650
+    646
    ]
   },
   {
    "full_name": "x1xhlol/system-prompts-and-models-of-ai-tools",
    "lang": null,
    "license_spdx": "GPL-3.0",
-   "stars": 144897,
-   "forks": 34623,
+   "stars": 144903,
+   "forks": 34619,
    "summary": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, VSCode Agent, Warp.dev, Windsurf, Xcode, Z.ai Code, Dia & v0. (And other Open Sourced) System Prompts, Internal Tools & AI Models",
    "latest_version": null,
    "latest_release_at": null,
@@ -1187,26 +1188,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 22,
-   "gain_7d": 120,
+   "gain": 6,
+   "gain_7d": 107,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    98
+    101
    ]
   },
   {
    "full_name": "stablyai/orca",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 141284,
-   "forks": 9048,
+   "stars": 142916,
+   "forks": 9144,
    "summary": "Orca lets you run a fleet of bots with your own subscription (e.g. Claude Code, Grok, Agy, Codex). Available on desktop, mobile and remote runtime.",
-   "latest_version": "v1.4.279",
-   "latest_release_at": "2026-11-27T03:56:08Z",
-   "repo_updated_at": "2026-11-27T08:10:46Z",
+   "latest_version": "v1.4.280",
+   "latest_release_at": "2026-11-27T11:33:37Z",
+   "repo_updated_at": "2026-11-28T07:36:09Z",
    "topics": [
     "agent-ide",
     "ai-agents",
@@ -1232,26 +1233,26 @@ window.RADAR_DATA = {
    "homepage": "https://orca.dev",
    "archived": false,
    "is_new": false,
-   "gain": 2307,
-   "gain_7d": 11106,
+   "gain": 1632,
+   "gain_7d": 11655,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    8799
+    10023
    ]
   },
   {
    "full_name": "shadcn-ui/ui",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 129207,
-   "forks": 11452,
+   "stars": 129294,
+   "forks": 11417,
    "summary": "Composable, accessible components with thoughtful defaults. Build your own component library with code you can customize, extend, and make your own.",
    "latest_version": "shadcn@4.23.1",
    "latest_release_at": "2026-11-25T18:57:19Z",
-   "repo_updated_at": "2026-11-26T16:16:11Z",
+   "repo_updated_at": "2026-11-27T08:19:49Z",
    "topics": [
     "ai",
     "base-ui",
@@ -1274,22 +1275,22 @@ window.RADAR_DATA = {
    "homepage": "https://ui.shadcn.com",
    "archived": false,
    "is_new": false,
-   "gain": 89,
-   "gain_7d": 600,
+   "gain": 87,
+   "gain_7d": 633,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    511
+    546
    ]
   },
   {
    "full_name": "microsoft/generative-ai-for-beginners",
    "lang": "Jupyter Notebook",
    "license_spdx": "MIT",
-   "stars": 124376,
-   "forks": 67096,
+   "stars": 124455,
+   "forks": 67158,
    "summary": "21 Lessons, Get Started Building with Generative AI ",
    "latest_version": null,
    "latest_release_at": null,
@@ -1313,22 +1314,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 101,
-   "gain_7d": 495,
+   "gain": 79,
+   "gain_7d": 527,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    394
+    448
    ]
   },
   {
    "full_name": "TauricResearch/TradingAgents",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 123876,
-   "forks": 23722,
+   "stars": 123968,
+   "forks": 23725,
    "summary": "TradingAgents: Towards Agentic Finance Research",
    "latest_version": "v1.0.1",
    "latest_release_at": "2026-11-25T07:48:13Z",
@@ -1343,26 +1344,26 @@ window.RADAR_DATA = {
    "homepage": "https://tauric.ai",
    "archived": false,
    "is_new": false,
-   "gain": 70,
-   "gain_7d": 667,
+   "gain": 92,
+   "gain_7d": 646,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    597
+    554
    ]
   },
   {
    "full_name": "JuliusBrussee/caveman",
    "lang": "Go",
    "license_spdx": "Apache-2.0",
-   "stars": 123158,
-   "forks": 7208,
+   "stars": 123358,
+   "forks": 7218,
    "summary": "why use many token when few token do trick. Skill + local proxy for coding agents: shorter answers, smaller tool output, every original recoverable.",
    "latest_version": "v4.2.0",
    "latest_release_at": "2026-11-22T07:10:51Z",
-   "repo_updated_at": "2026-11-27T05:38:24Z",
+   "repo_updated_at": "2026-11-28T05:11:31Z",
    "topics": [
     "ai",
     "anthropic",
@@ -1378,26 +1379,62 @@ window.RADAR_DATA = {
    "homepage": "https://docs.caveman.so/caveman",
    "archived": false,
    "is_new": false,
-   "gain": 223,
-   "gain_7d": 1530,
+   "gain": 200,
+   "gain_7d": 1531,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1307
+    1331
+   ]
+  },
+  {
+   "full_name": "Leonxlnx/taste-skill",
+   "lang": "JavaScript",
+   "license_spdx": "MIT",
+   "stars": 122425,
+   "forks": 8252,
+   "summary": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+   "latest_version": "v2.5.1",
+   "latest_release_at": "2026-11-07T12:34:31Z",
+   "repo_updated_at": "2026-11-26T23:58:12Z",
+   "topics": [
+    "agent-skills",
+    "ai-agents",
+    "anti-slop",
+    "claude-code",
+    "codex",
+    "cursor",
+    "design-system",
+    "frontend",
+    "landing-page",
+    "ui-design",
+    "web-design"
+   ],
+   "homepage": "https://tasteskill.dev",
+   "archived": false,
+   "is_new": false,
+   "gain": 318,
+   "gain_7d": 2988,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    2670
    ]
   },
   {
    "full_name": "browser-use/browser-use",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 122181,
-   "forks": 13669,
+   "stars": 122253,
+   "forks": 13680,
    "summary": "Open-source Python library for AI browser agents, plus Browser Use Cloud: stealth browsers and a hosted agent API.",
    "latest_version": "1.0.9",
    "latest_release_at": "2026-11-26T22:45:43Z",
-   "repo_updated_at": "2026-11-27T03:20:23Z",
+   "repo_updated_at": "2026-11-28T04:47:43Z",
    "topics": [
     "ai-agents",
     "ai-tools",
@@ -1420,62 +1457,26 @@ window.RADAR_DATA = {
    "homepage": "https://browser-use.com",
    "archived": false,
    "is_new": false,
-   "gain": 74,
-   "gain_7d": 634,
+   "gain": 72,
+   "gain_7d": 613,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    560
-   ]
-  },
-  {
-   "full_name": "Leonxlnx/taste-skill",
-   "lang": "JavaScript",
-   "license_spdx": "MIT",
-   "stars": 122107,
-   "forks": 8228,
-   "summary": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
-   "latest_version": "v2.5.1",
-   "latest_release_at": "2026-11-07T12:34:31Z",
-   "repo_updated_at": "2026-11-26T23:58:12Z",
-   "topics": [
-    "agent-skills",
-    "ai-agents",
-    "anti-slop",
-    "claude-code",
-    "codex",
-    "cursor",
-    "design-system",
-    "frontend",
-    "landing-page",
-    "ui-design",
-    "web-design"
-   ],
-   "homepage": "https://tasteskill.dev",
-   "archived": false,
-   "is_new": false,
-   "gain": 407,
-   "gain_7d": 3082,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    2675
+    541
    ]
   },
   {
    "full_name": "thedotmack/claude-mem",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 120064,
-   "forks": 10448,
+   "stars": 120269,
+   "forks": 10463,
    "summary": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
    "latest_version": "v17.0.2",
    "latest_release_at": "2026-11-26T20:45:45Z",
-   "repo_updated_at": "2026-11-26T21:26:54Z",
+   "repo_updated_at": "2026-11-28T06:02:05Z",
    "topics": [
     "ai",
     "ai-agents",
@@ -1501,26 +1502,26 @@ window.RADAR_DATA = {
    "homepage": "https://claude-mem.ai",
    "archived": false,
    "is_new": false,
-   "gain": 225,
-   "gain_7d": 1559,
+   "gain": 205,
+   "gain_7d": 1561,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1334
+    1356
    ]
   },
   {
    "full_name": "debpalash/VoiceStudio",
    "lang": "Python",
    "license_spdx": "AGPL-3.0",
-   "stars": 119061,
-   "forks": 13290,
+   "stars": 119496,
+   "forks": 13343,
    "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
    "latest_version": "v0.5.8",
    "latest_release_at": "2026-11-12T08:53:29Z",
-   "repo_updated_at": "2026-11-27T07:35:30Z",
+   "repo_updated_at": "2026-11-28T02:00:06Z",
    "topics": [
     "ai",
     "audiobook",
@@ -1545,26 +1546,26 @@ window.RADAR_DATA = {
    "homepage": "https://voicestudio.sh",
    "archived": false,
    "is_new": false,
-   "gain": 469,
-   "gain_7d": 4388,
+   "gain": 435,
+   "gain_7d": 3920,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    3919
+    3485
    ]
   },
   {
    "full_name": "pbakaus/impeccable",
    "lang": "Rust",
    "license_spdx": "Apache-2.0",
-   "stars": 117699,
-   "forks": 7056,
+   "stars": 118195,
+   "forks": 7076,
    "summary": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
-   "latest_version": "skill-v4.11.1",
-   "latest_release_at": "2026-11-26T01:59:33Z",
-   "repo_updated_at": "2026-11-27T08:07:54Z",
+   "latest_version": "engine-v0.1.32",
+   "latest_release_at": "2026-11-28T03:30:04Z",
+   "repo_updated_at": "2026-11-28T03:53:52Z",
    "topics": [
     "agent-skills",
     "ai",
@@ -1575,26 +1576,26 @@ window.RADAR_DATA = {
    "homepage": "https://impeccable.style",
    "archived": false,
    "is_new": false,
-   "gain": 591,
-   "gain_7d": 4062,
+   "gain": 496,
+   "gain_7d": 4017,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    3471
+    3521
    ]
   },
   {
    "full_name": "paperclipai/paperclip",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 117455,
-   "forks": 19541,
+   "stars": 117661,
+   "forks": 19590,
    "summary": "The open-source app everyone uses to manage agents at work",
    "latest_version": "v2026.1117.0",
    "latest_release_at": "2026-11-18T22:20:29Z",
-   "repo_updated_at": "2026-11-27T07:46:28Z",
+   "repo_updated_at": "2026-11-28T07:18:29Z",
    "topics": [
     "acpx",
     "agent-orchestration",
@@ -1620,26 +1621,26 @@ window.RADAR_DATA = {
    "homepage": "https://paperclip.ing",
    "archived": false,
    "is_new": false,
-   "gain": 281,
-   "gain_7d": 2173,
+   "gain": 206,
+   "gain_7d": 2117,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1892
+    1911
    ]
   },
   {
    "full_name": "supabase/supabase",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 115585,
-   "forks": 15158,
+   "stars": 115500,
+   "forks": 15111,
    "summary": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
    "latest_version": "v1.26.08",
    "latest_release_at": "2026-08-07T13:57:57Z",
-   "repo_updated_at": "2026-11-27T08:02:28Z",
+   "repo_updated_at": "2026-11-28T04:58:08Z",
    "topics": [
     "ai",
     "alternative",
@@ -1664,22 +1665,22 @@ window.RADAR_DATA = {
    "homepage": "https://supabase.com",
    "archived": false,
    "is_new": false,
-   "gain": 56,
-   "gain_7d": 397,
+   "gain": 0,
+   "gain_7d": 290,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    341
+    375
    ]
   },
   {
    "full_name": "Panniantong/Agent-Reach",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 115165,
-   "forks": 10358,
+   "stars": 115441,
+   "forks": 10390,
    "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
    "latest_version": "v1.6.1",
    "latest_release_at": "2026-11-01T07:24:15Z",
@@ -1706,26 +1707,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 346,
-   "gain_7d": 1757,
+   "gain": 276,
+   "gain_7d": 1819,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1411
+    1543
    ]
   },
   {
    "full_name": "google-gemini/gemini-cli",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 109217,
-   "forks": 15010,
+   "stars": 109261,
+   "forks": 15024,
    "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
    "latest_version": "v0.71.1",
    "latest_release_at": "2026-11-24T03:50:24Z",
-   "repo_updated_at": "2026-11-27T01:14:43Z",
+   "repo_updated_at": "2026-11-28T01:12:45Z",
    "topics": [
     "ai",
     "ai-agents",
@@ -1738,22 +1739,22 @@ window.RADAR_DATA = {
    "homepage": "https://geminicli.com",
    "archived": false,
    "is_new": false,
-   "gain": 65,
-   "gain_7d": 265,
+   "gain": 44,
+   "gain_7d": 302,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    200
+    258
    ]
   },
   {
    "full_name": "rasbt/LLMs-from-scratch",
    "lang": "Jupyter Notebook",
    "license_spdx": null,
-   "stars": 109109,
-   "forks": 16867,
+   "stars": 109171,
+   "forks": 16874,
    "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
    "latest_version": null,
    "latest_release_at": null,
@@ -1782,26 +1783,26 @@ window.RADAR_DATA = {
    "homepage": "https://amzn.to/4fqvn0D",
    "archived": false,
    "is_new": false,
-   "gain": 41,
-   "gain_7d": 427,
+   "gain": 62,
+   "gain_7d": 440,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    386
+    378
    ]
   },
   {
    "full_name": "D4Vinci/Scrapling",
    "lang": "Python",
    "license_spdx": "BSD-3-Clause",
-   "stars": 106090,
-   "forks": 11128,
+   "stars": 106538,
+   "forks": 11184,
    "summary": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
    "latest_version": "v0.5.1",
    "latest_release_at": "2026-11-04T20:29:16Z",
-   "repo_updated_at": "2026-11-26T00:10:49Z",
+   "repo_updated_at": "2026-11-28T00:24:39Z",
    "topics": [
     "ai",
     "ai-scraping",
@@ -1827,26 +1828,26 @@ window.RADAR_DATA = {
    "homepage": "https://scrapling.readthedocs.io/en/latest/",
    "archived": false,
    "is_new": false,
-   "gain": 216,
-   "gain_7d": 1593,
+   "gain": 448,
+   "gain_7d": 1827,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1377
+    1379
    ]
   },
   {
    "full_name": "ruvnet/RuView",
    "lang": "Rust",
    "license_spdx": "MIT",
-   "stars": 105315,
-   "forks": 13672,
+   "stars": 105381,
+   "forks": 13681,
    "summary": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
    "latest_version": "ruview-harness-v0.9.2",
    "latest_release_at": "2026-10-12T17:02:30Z",
-   "repo_updated_at": "2026-11-27T06:17:53Z",
+   "repo_updated_at": "2026-11-28T06:15:05Z",
    "topics": [
     "claude",
     "claude-code",
@@ -1871,26 +1872,26 @@ window.RADAR_DATA = {
    "homepage": "https://cognitum.one",
    "archived": false,
    "is_new": false,
-   "gain": 95,
-   "gain_7d": 659,
+   "gain": 66,
+   "gain_7d": 671,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    564
+    605
    ]
   },
   {
    "full_name": "tt-a1i/archify",
    "lang": "JavaScript",
    "license_spdx": "Apache-2.0",
-   "stars": 100719,
-   "forks": 6899,
+   "stars": 101063,
+   "forks": 6927,
    "summary": "Turn any idea, plan, or codebase into an interactive diagram or one-page answer: 10 diagram types, Architecture Diagnosis, Story video and PR walkthroughs. An Agent Skill for Claude Code, Codex, Cursor and more.",
    "latest_version": "v3.3.2",
    "latest_release_at": "2026-11-25T16:54:31Z",
-   "repo_updated_at": "2026-11-26T01:45:04Z",
+   "repo_updated_at": "2026-11-28T03:28:44Z",
    "topics": [
     "agent-skills",
     "ai-agents",
@@ -1916,22 +1917,22 @@ window.RADAR_DATA = {
    "homepage": "https://archify.si",
    "archived": false,
    "is_new": false,
-   "gain": 574,
-   "gain_7d": 2579,
+   "gain": 344,
+   "gain_7d": 2659,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    2005
+    2315
    ]
   },
   {
    "full_name": "hacksider/Deep-Live-Cam",
    "lang": "Python",
    "license_spdx": "AGPL-3.0",
-   "stars": 98963,
-   "forks": 14473,
+   "stars": 98980,
+   "forks": 14476,
    "summary": "real time face swap and one-click video deepfake with only a single image",
    "latest_version": "2.8",
    "latest_release_at": "2026-10-22T15:28:59Z",
@@ -1959,22 +1960,22 @@ window.RADAR_DATA = {
    "homepage": "https://deeplivecam.net/",
    "archived": false,
    "is_new": false,
-   "gain": 25,
-   "gain_7d": 619,
+   "gain": 17,
+   "gain_7d": 469,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    594
+    452
    ]
   },
   {
    "full_name": "punkpeye/awesome-mcp-servers",
    "lang": null,
    "license_spdx": "MIT",
-   "stars": 98558,
-   "forks": 21018,
+   "stars": 98587,
+   "forks": 21102,
    "summary": "A collection of MCP servers.",
    "latest_version": null,
    "latest_release_at": null,
@@ -1986,26 +1987,26 @@ window.RADAR_DATA = {
    "homepage": "https://glama.ai/mcp/servers",
    "archived": false,
    "is_new": false,
-   "gain": 36,
-   "gain_7d": 276,
+   "gain": 29,
+   "gain_7d": 252,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    240
+    223
    ]
   },
   {
    "full_name": "vllm-project/vllm",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 97676,
-   "forks": 25359,
+   "stars": 97731,
+   "forks": 25403,
    "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
    "latest_version": "v0.34.0",
    "latest_release_at": "2026-11-16T23:22:00Z",
-   "repo_updated_at": "2026-11-27T07:54:27Z",
+   "repo_updated_at": "2026-11-28T07:14:31Z",
    "topics": [
     "amd",
     "blackwell",
@@ -2031,26 +2032,26 @@ window.RADAR_DATA = {
    "homepage": "https://vllm.ai",
    "archived": false,
    "is_new": false,
-   "gain": 79,
-   "gain_7d": 433,
+   "gain": 55,
+   "gain_7d": 436,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    354
+    381
    ]
   },
   {
    "full_name": "infiniflow/ragflow",
    "lang": "Go",
    "license_spdx": "Apache-2.0",
-   "stars": 94809,
-   "forks": 11419,
+   "stars": 94847,
+   "forks": 11425,
    "summary": "RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that grew into context infrastructure.",
    "latest_version": "v1.0.0",
    "latest_release_at": "2026-11-06T12:31:31Z",
-   "repo_updated_at": "2026-11-27T08:00:46Z",
+   "repo_updated_at": "2026-11-27T13:09:01Z",
    "topics": [
     "agent-harness",
     "agent-native-database",
@@ -2072,26 +2073,26 @@ window.RADAR_DATA = {
    "homepage": "https://ragflow.io",
    "archived": false,
    "is_new": false,
-   "gain": 68,
-   "gain_7d": 348,
+   "gain": 38,
+   "gain_7d": 354,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    280
+    316
    ]
   },
   {
    "full_name": "OpenHands/OpenHands",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 94437,
-   "forks": 12661,
+   "stars": 94479,
+   "forks": 12672,
    "summary": "🙌 OpenHands: AI-Driven Development",
    "latest_version": "v1.46.0",
    "latest_release_at": "2026-11-25T14:13:07Z",
-   "repo_updated_at": "2026-11-27T00:09:54Z",
+   "repo_updated_at": "2026-11-28T00:05:06Z",
    "topics": [
     "agent",
     "artificial-intelligence",
@@ -2106,22 +2107,22 @@ window.RADAR_DATA = {
    "homepage": "https://openhands.dev",
    "archived": false,
    "is_new": false,
-   "gain": 70,
-   "gain_7d": 561,
+   "gain": 42,
+   "gain_7d": 543,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    491
+    501
    ]
   },
   {
    "full_name": "PaddlePaddle/PaddleOCR",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 93356,
-   "forks": 11713,
+   "stars": 93408,
+   "forks": 11718,
    "summary": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
    "latest_version": "v3.7.0",
    "latest_release_at": "2026-06-11T12:09:14Z",
@@ -2144,64 +2145,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.paddleocr.com",
    "archived": false,
    "is_new": false,
-   "gain": 83,
-   "gain_7d": 424,
+   "gain": 52,
+   "gain_7d": 449,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    341
-   ]
-  },
-  {
-   "full_name": "koala73/worldmonitor",
-   "lang": "TypeScript",
-   "license_spdx": "AGPL-3.0",
-   "stars": 91243,
-   "forks": 14174,
-   "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
-   "latest_version": "v2.11.8",
-   "latest_release_at": "2026-11-04T19:23:59Z",
-   "repo_updated_at": "2026-11-27T07:54:23Z",
-   "topics": [
-    "agent",
-    "ai",
-    "dashboard",
-    "gemini-cli-extension",
-    "geopolitics",
-    "mcp",
-    "mcp-server",
-    "monitoring",
-    "news",
-    "opensource",
-    "osint",
-    "palantir",
-    "situation"
-   ],
-   "homepage": "https://worldmonitor.app",
-   "archived": false,
-   "is_new": false,
-   "gain": 36,
-   "gain_7d": 272,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    236
+    397
    ]
   },
   {
    "full_name": "heygen-com/hyperframes",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 91095,
-   "forks": 8500,
+   "stars": 91675,
+   "forks": 8554,
    "summary": "Open-source AI video editor: edit your own footage, or create and remake any video with Claude Code, Codex or the free Studio app. Write HTML, render MP4. By HeyGen.",
-   "latest_version": "v0.9.102",
-   "latest_release_at": "2026-11-27T01:25:43Z",
-   "repo_updated_at": "2026-11-27T08:10:55Z",
+   "latest_version": "v0.9.104",
+   "latest_release_at": "2026-11-27T18:46:30Z",
+   "repo_updated_at": "2026-11-28T07:27:12Z",
    "topics": [
     "agent-skills",
     "ai",
@@ -2224,29 +2187,67 @@ window.RADAR_DATA = {
     "video-editor",
     "video-generation"
    ],
-   "homepage": "https://hyperframes.heygen.com",
+   "homepage": "https://hyperframes.studio",
    "archived": false,
    "is_new": false,
-   "gain": 724,
-   "gain_7d": 3941,
+   "gain": 580,
+   "gain_7d": 4113,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    3217
+    3533
+   ]
+  },
+  {
+   "full_name": "koala73/worldmonitor",
+   "lang": "TypeScript",
+   "license_spdx": "AGPL-3.0",
+   "stars": 91276,
+   "forks": 14189,
+   "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+   "latest_version": "v2.11.8",
+   "latest_release_at": "2026-11-04T19:23:59Z",
+   "repo_updated_at": "2026-11-28T05:35:00Z",
+   "topics": [
+    "agent",
+    "ai",
+    "dashboard",
+    "gemini-cli-extension",
+    "geopolitics",
+    "mcp",
+    "mcp-server",
+    "monitoring",
+    "news",
+    "opensource",
+    "osint",
+    "palantir",
+    "situation"
+   ],
+   "homepage": "https://worldmonitor.app",
+   "archived": false,
+   "is_new": false,
+   "gain": 33,
+   "gain_7d": 275,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    242
    ]
   },
   {
    "full_name": "cheaper-inference/OmniRoute",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 90617,
-   "forks": 14115,
+   "stars": 90818,
+   "forks": 14159,
    "summary": "Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ contributors",
    "latest_version": "v3.8.54",
    "latest_release_at": "2026-11-17T14:04:45Z",
-   "repo_updated_at": "2026-11-27T07:45:32Z",
+   "repo_updated_at": "2026-11-28T07:24:57Z",
    "topics": [
     "a2a",
     "ai-agents",
@@ -2272,26 +2273,26 @@ window.RADAR_DATA = {
    "homepage": "https://omniroute.online",
    "archived": false,
    "is_new": false,
-   "gain": 219,
-   "gain_7d": 1603,
+   "gain": 201,
+   "gain_7d": 1575,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1384
+    1374
    ]
   },
   {
    "full_name": "Ebony-Vinyl/dsh-our-free-model",
    "lang": "JavaScript",
    "license_spdx": null,
-   "stars": 88595,
-   "forks": 2506,
+   "stars": 89418,
+   "forks": 2531,
    "summary": "在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap.",
    "latest_version": "v2.9.1",
    "latest_release_at": "2026-11-26T03:16:10Z",
-   "repo_updated_at": "2026-11-27T07:24:20Z",
+   "repo_updated_at": "2026-11-28T07:07:42Z",
    "topics": [
     "ai-agents",
     "deepseek",
@@ -2307,22 +2308,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 1068,
-   "gain_7d": 7210,
+   "gain": 823,
+   "gain_7d": 7028,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    6142
+    6205
    ]
   },
   {
    "full_name": "datawhalechina/hello-agents",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 88062,
-   "forks": 10998,
+   "stars": 88121,
+   "forks": 11006,
    "summary": "📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程",
    "latest_version": "V1.0.3",
    "latest_release_at": "2026-07-17T09:29:47Z",
@@ -2336,22 +2337,22 @@ window.RADAR_DATA = {
    "homepage": "https://hello-agents.datawhale.cc",
    "archived": false,
    "is_new": false,
-   "gain": 78,
-   "gain_7d": 601,
+   "gain": 59,
+   "gain_7d": 585,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    523
+    526
    ]
   },
   {
    "full_name": "unclecode/crawl4ai",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 88018,
-   "forks": 9187,
+   "stars": 88069,
+   "forks": 9194,
    "summary": "Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. Free API key, 1,000 credits a month, no card. Fully open source: this repo is the Apache-2.0 crawler that powers it, and you can self-host it.",
    "latest_version": "v0.9.6",
    "latest_release_at": "2026-11-20T09:46:52Z",
@@ -2377,26 +2378,26 @@ window.RADAR_DATA = {
    "homepage": "https://crawl4ai.com/signin/?ref=github-about",
    "archived": false,
    "is_new": false,
-   "gain": 62,
-   "gain_7d": 439,
+   "gain": 51,
+   "gain_7d": 453,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    377
+    402
    ]
   },
   {
    "full_name": "rtk-ai/rtk",
    "lang": "Rust",
    "license_spdx": "Apache-2.0",
-   "stars": 87982,
-   "forks": 5656,
+   "stars": 88067,
+   "forks": 5669,
    "summary": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
    "latest_version": "v1.2.1",
    "latest_release_at": "2026-11-19T17:49:33Z",
-   "repo_updated_at": "2026-11-26T20:27:32Z",
+   "repo_updated_at": "2026-11-28T02:12:02Z",
    "topics": [
     "agentic-coding",
     "ai-coding",
@@ -2415,26 +2416,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.rtk-ai.app",
    "archived": false,
    "is_new": false,
-   "gain": 110,
-   "gain_7d": 758,
+   "gain": 85,
+   "gain_7d": 743,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    648
+    658
    ]
   },
   {
    "full_name": "lobehub/lobehub",
    "lang": "TypeScript",
    "license_spdx": null,
-   "stars": 86195,
-   "forks": 16370,
+   "stars": 86218,
+   "forks": 16361,
    "summary": "🤯 LobeHub - Super-Agents on Your Team. Add super-agents to the chats your team already uses.They take on work by themselves and get better every week.",
    "latest_version": "v2.3.6",
    "latest_release_at": "2026-11-24T12:54:17Z",
-   "repo_updated_at": "2026-11-27T08:08:47Z",
+   "repo_updated_at": "2026-11-28T07:05:48Z",
    "topics": [
     "agent",
     "agent-collaboration",
@@ -2450,26 +2451,26 @@ window.RADAR_DATA = {
    "homepage": "https://lobehub.com",
    "archived": false,
    "is_new": false,
-   "gain": 27,
-   "gain_7d": 297,
+   "gain": 23,
+   "gain_7d": 281,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    270
+    258
    ]
   },
   {
    "full_name": "bytedance/deer-flow",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 85866,
-   "forks": 12129,
+   "stars": 85888,
+   "forks": 12133,
    "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
    "latest_version": "v2.2.0",
    "latest_release_at": "2026-11-04T12:56:57Z",
-   "repo_updated_at": "2026-11-27T07:56:07Z",
+   "repo_updated_at": "2026-11-28T06:21:06Z",
    "topics": [
     "agent",
     "agentic",
@@ -2493,22 +2494,22 @@ window.RADAR_DATA = {
    "homepage": "https://deerflow.tech",
    "archived": false,
    "is_new": false,
-   "gain": 33,
+   "gain": 22,
    "gain_7d": 322,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    289
+    300
    ]
   },
   {
    "full_name": "OpenMontageInc/OpenMontage",
    "lang": "Python",
    "license_spdx": "AGPL-3.0",
-   "stars": 83730,
-   "forks": 11416,
+   "stars": 83910,
+   "forks": 11450,
    "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
    "latest_version": null,
    "latest_release_at": null,
@@ -2537,26 +2538,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.openmontage.video/",
    "archived": false,
    "is_new": false,
-   "gain": 285,
-   "gain_7d": 1919,
+   "gain": 180,
+   "gain_7d": 1917,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1634
+    1737
    ]
   },
   {
    "full_name": "ruvnet/ruflo",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 82522,
-   "forks": 9714,
+   "stars": 82570,
+   "forks": 9725,
    "summary": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
-   "latest_version": "v3.80.9",
-   "latest_release_at": "2026-11-26T14:39:04Z",
-   "repo_updated_at": "2026-11-27T07:31:10Z",
+   "latest_version": "v3.80.11",
+   "latest_release_at": "2026-11-27T16:50:33Z",
+   "repo_updated_at": "2026-11-28T07:32:51Z",
    "topics": [
     "agent-memory",
     "agent-orchestration",
@@ -2582,26 +2583,59 @@ window.RADAR_DATA = {
    "homepage": "https://cognitum.one/ruPro",
    "archived": false,
    "is_new": false,
-   "gain": 85,
+   "gain": 48,
    "gain_7d": 394,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    309
+    346
+   ]
+  },
+  {
+   "full_name": "pingdotgg/t3code",
+   "lang": "TypeScript",
+   "license_spdx": "MIT",
+   "stars": 82429,
+   "forks": 14521,
+   "summary": "The best way to control Claude Code, Codex and more from any computer or phone",
+   "latest_version": "v0.1.13",
+   "latest_release_at": "2026-11-26T19:32:24Z",
+   "repo_updated_at": "2026-11-28T07:35:28Z",
+   "topics": [
+    "agent-orchestration",
+    "agents",
+    "ai",
+    "chatgpt",
+    "claude",
+    "claude-code",
+    "code",
+    "vibe-coding"
+   ],
+   "homepage": "https://t3.codes",
+   "archived": false,
+   "is_new": false,
+   "gain": 1038,
+   "gain_7d": 14151,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    13113
    ]
   },
   {
    "full_name": "netdata/netdata",
    "lang": "Go",
    "license_spdx": "GPL-3.0",
-   "stars": 81657,
-   "forks": 6742,
+   "stars": 81671,
+   "forks": 6740,
    "summary": "Full-stack observability · Metrics · Logs · Traces · Flows · Topology · Infrastructure · APM · NPM · DBM · RUM · Synthetics · Cloud · AI SRE · OpenTelemetry · SNMP · NetFlow/IPFIX/sFlow · IPMI · Redfish · 2000+ integrations",
    "latest_version": "v2.13.0",
    "latest_release_at": "2026-11-19T16:07:44Z",
-   "repo_updated_at": "2026-11-27T07:44:40Z",
+   "repo_updated_at": "2026-11-28T00:13:40Z",
    "topics": [
     "ai",
     "anomaly-detection",
@@ -2627,55 +2661,22 @@ window.RADAR_DATA = {
    "homepage": "https://www.netdata.cloud",
    "archived": false,
    "is_new": false,
-   "gain": 7,
-   "gain_7d": 123,
+   "gain": 14,
+   "gain_7d": 106,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    116
-   ]
-  },
-  {
-   "full_name": "pingdotgg/t3code",
-   "lang": "TypeScript",
-   "license_spdx": "MIT",
-   "stars": 81391,
-   "forks": 14363,
-   "summary": "The best way to control Claude Code, Codex and more from any computer or phone",
-   "latest_version": "v0.1.13",
-   "latest_release_at": "2026-11-26T19:32:24Z",
-   "repo_updated_at": "2026-11-27T08:11:08Z",
-   "topics": [
-    "agent-orchestration",
-    "agents",
-    "ai",
-    "chatgpt",
-    "claude",
-    "claude-code",
-    "code",
-    "vibe-coding"
-   ],
-   "homepage": "https://t3.codes",
-   "archived": false,
-   "is_new": false,
-   "gain": 1412,
-   "gain_7d": 14634,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    13222
+    92
    ]
   },
   {
    "full_name": "microsoft/ai-agents-for-beginners",
    "lang": "Jupyter Notebook",
    "license_spdx": "MIT",
-   "stars": 81076,
-   "forks": 26512,
+   "stars": 81129,
+   "forks": 26538,
    "summary": "18 Lessons to Get Started Building AI Agents",
    "latest_version": null,
    "latest_release_at": null,
@@ -2696,61 +2697,26 @@ window.RADAR_DATA = {
    "homepage": "https://aka.ms/ai-agents-beginners",
    "archived": false,
    "is_new": false,
-   "gain": 68,
-   "gain_7d": 541,
+   "gain": 53,
+   "gain_7d": 478,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    473
-   ]
-  },
-  {
-   "full_name": "shareAI-lab/learn-claude-code",
-   "lang": "Python",
-   "license_spdx": "MIT",
-   "stars": 80974,
-   "forks": 12910,
-   "summary": "Bash is all you need -  A nano claude code–like 「agent harness」, built from 0 to 1",
-   "latest_version": null,
-   "latest_release_at": null,
-   "repo_updated_at": "2026-11-15T13:41:46Z",
-   "topics": [
-    "agent",
-    "agent-development",
-    "ai-agent",
-    "claude",
-    "claude-code",
-    "educational",
-    "llm",
-    "python",
-    "teaching",
-    "tutorial"
-   ],
-   "homepage": "https://learn.shareai.run",
-   "archived": false,
-   "is_new": false,
-   "gain": 55,
-   "gain_7d": 314,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    259
+    425
    ]
   },
   {
    "full_name": "headroomlabs-ai/headroom",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 80963,
-   "forks": 6359,
+   "stars": 81032,
+   "forks": 6364,
    "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
    "latest_version": "v0.45.0",
    "latest_release_at": "2026-11-22T01:25:35Z",
-   "repo_updated_at": "2026-11-27T01:24:34Z",
+   "repo_updated_at": "2026-11-27T18:14:41Z",
    "topics": [
     "agent",
     "ai",
@@ -2776,26 +2742,61 @@ window.RADAR_DATA = {
    "homepage": "https://docs.headroomlabs.ai/docs",
    "archived": false,
    "is_new": false,
-   "gain": 71,
-   "gain_7d": 779,
+   "gain": 69,
+   "gain_7d": 806,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    708
+    737
+   ]
+  },
+  {
+   "full_name": "shareAI-lab/learn-claude-code",
+   "lang": "Python",
+   "license_spdx": "MIT",
+   "stars": 81004,
+   "forks": 12914,
+   "summary": "Bash is all you need -  A nano claude code–like 「agent harness」, built from 0 to 1",
+   "latest_version": null,
+   "latest_release_at": null,
+   "repo_updated_at": "2026-11-15T13:41:46Z",
+   "topics": [
+    "agent",
+    "agent-development",
+    "ai-agent",
+    "claude",
+    "claude-code",
+    "educational",
+    "llm",
+    "python",
+    "teaching",
+    "tutorial"
+   ],
+   "homepage": "https://learn.shareai.run",
+   "archived": false,
+   "is_new": false,
+   "gain": 30,
+   "gain_7d": 317,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    287
    ]
   },
   {
    "full_name": "rohitg00/ai-engineering-from-scratch",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 80697,
-   "forks": 14469,
+   "stars": 80916,
+   "forks": 14514,
    "summary": "Learn AI Engineering! Learn it. Build it. Ship it for others.",
    "latest_version": "v2026.11.5",
    "latest_release_at": "2026-11-25T15:30:13Z",
-   "repo_updated_at": "2026-11-25T15:31:09Z",
+   "repo_updated_at": "2026-11-27T14:19:38Z",
    "topics": [
     "agents",
     "ai",
@@ -2821,22 +2822,22 @@ window.RADAR_DATA = {
    "homepage": "https://aiengineeringfromscratch.com",
    "archived": false,
    "is_new": false,
-   "gain": 492,
-   "gain_7d": 1065,
+   "gain": 219,
+   "gain_7d": 1209,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    573
+    990
    ]
   },
   {
    "full_name": "ComposioHQ/awesome-claude-skills",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 80415,
-   "forks": 9913,
+   "stars": 80478,
+   "forks": 9935,
    "summary": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
    "latest_version": null,
    "latest_release_at": null,
@@ -2863,26 +2864,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 74,
-   "gain_7d": 503,
+   "gain": 63,
+   "gain_7d": 512,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    429
+    449
    ]
   },
   {
    "full_name": "unslothai/unsloth",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 80333,
-   "forks": 7486,
+   "stars": 80399,
+   "forks": 7501,
    "summary": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.",
    "latest_version": "v0.1.925-beta",
    "latest_release_at": "2026-11-25T14:13:35Z",
-   "repo_updated_at": "2026-11-27T08:09:25Z",
+   "repo_updated_at": "2026-11-28T07:35:49Z",
    "topics": [
     "agent",
     "ai",
@@ -2908,26 +2909,26 @@ window.RADAR_DATA = {
    "homepage": "https://unsloth.ai/docs",
    "archived": false,
    "is_new": false,
-   "gain": 56,
-   "gain_7d": 520,
+   "gain": 66,
+   "gain_7d": 533,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    464
+    467
    ]
   },
   {
    "full_name": "hiyouga/LlamaFactory",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 76301,
+   "stars": 76315,
    "forks": 9425,
    "summary": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
    "latest_version": "v0.9.5",
    "latest_release_at": "2026-05-30T15:57:58Z",
-   "repo_updated_at": "2026-11-25T04:38:40Z",
+   "repo_updated_at": "2026-11-28T06:26:36Z",
    "topics": [
     "agent",
     "ai",
@@ -2953,26 +2954,26 @@ window.RADAR_DATA = {
    "homepage": "https://llamafactory.readthedocs.io",
    "archived": false,
    "is_new": false,
-   "gain": 10,
-   "gain_7d": 156,
+   "gain": 14,
+   "gain_7d": 149,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    146
+    135
    ]
   },
   {
    "full_name": "Fission-AI/OpenSpec",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 75847,
-   "forks": 5199,
+   "stars": 75913,
+   "forks": 5206,
    "summary": "Spec-driven development (SDD) for AI coding assistants.",
    "latest_version": "v2.2.0",
    "latest_release_at": "2026-11-24T19:55:16Z",
-   "repo_updated_at": "2026-11-25T02:07:01Z",
+   "repo_updated_at": "2026-11-28T01:26:01Z",
    "topics": [
     "ai",
     "context-engineering",
@@ -2988,22 +2989,22 @@ window.RADAR_DATA = {
    "homepage": "https://openspec.dev/",
    "archived": false,
    "is_new": false,
-   "gain": 94,
-   "gain_7d": 548,
+   "gain": 66,
+   "gain_7d": 547,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    454
+    481
    ]
   },
   {
    "full_name": "openbq-org/OpenBB",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 75785,
-   "forks": 7910,
+   "stars": 75809,
+   "forks": 7911,
    "summary": "Open Data Platform for analysts, quants and AI agents.",
    "latest_version": "ODP",
    "latest_release_at": "2026-09-30T01:47:43Z",
@@ -3026,26 +3027,26 @@ window.RADAR_DATA = {
    "homepage": "https://openbb.co",
    "archived": false,
    "is_new": false,
-   "gain": 33,
-   "gain_7d": 198,
+   "gain": 24,
+   "gain_7d": 200,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    165
+    176
    ]
   },
   {
    "full_name": "ZhuLinsen/daily_stock_analysis",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 74920,
-   "forks": 58814,
+   "stars": 75071,
+   "forks": 58905,
    "summary": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
    "latest_version": "v3.35.0",
    "latest_release_at": "2026-11-16T13:21:05Z",
-   "repo_updated_at": "2026-11-27T03:17:10Z",
+   "repo_updated_at": "2026-11-28T05:02:56Z",
    "topics": [
     "a-stock",
     "ai-agent",
@@ -3058,22 +3059,22 @@ window.RADAR_DATA = {
    "homepage": "https://dsa.zhulinsen.tech",
    "archived": false,
    "is_new": false,
-   "gain": 277,
-   "gain_7d": 1410,
+   "gain": 151,
+   "gain_7d": 1487,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1133
+    1336
    ]
   },
   {
    "full_name": "thedaviddias/Front-End-Checklist",
    "lang": "MDX",
    "license_spdx": "MIT",
-   "stars": 74832,
-   "forks": 6774,
+   "stars": 74844,
+   "forks": 6775,
    "summary": "🗂 The essential checklist for modern web development, for humans and AI agents",
    "latest_version": "v2.0",
    "latest_release_at": "2026-05-30T00:18:38Z",
@@ -3098,22 +3099,22 @@ window.RADAR_DATA = {
    "homepage": "https://frontendchecklist.io",
    "archived": false,
    "is_new": false,
-   "gain": 7,
-   "gain_7d": 49,
+   "gain": 12,
+   "gain_7d": 56,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    42
+    44
    ]
   },
   {
    "full_name": "blader/humanizer",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 74114,
-   "forks": 5831,
+   "stars": 74416,
+   "forks": 5855,
    "summary": "Agent skill that removes signs of AI-generated writing from text",
    "latest_version": "v4.0.0",
    "latest_release_at": "2026-11-10T01:35:15Z",
@@ -3136,26 +3137,26 @@ window.RADAR_DATA = {
    "homepage": "https://skills.sh/blader/humanizer",
    "archived": false,
    "is_new": false,
-   "gain": 396,
-   "gain_7d": 2721,
+   "gain": 302,
+   "gain_7d": 2679,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    2325
+    2377
    ]
   },
   {
    "full_name": "ai-job-search-dev/ai-job-search",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 73661,
-   "forks": 23542,
+   "stars": 73779,
+   "forks": 23566,
    "summary": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
    "latest_version": "v2.1.0",
    "latest_release_at": "2026-11-23T06:04:19Z",
-   "repo_updated_at": "2026-11-27T07:44:10Z",
+   "repo_updated_at": "2026-11-27T11:17:45Z",
    "topics": [
     "ai",
     "ai-agents",
@@ -3173,22 +3174,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 123,
-   "gain_7d": 1001,
+   "gain": 118,
+   "gain_7d": 917,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    878
+    799
    ]
   },
   {
    "full_name": "asgeirtj/system_prompts_leaks",
    "lang": "Python",
    "license_spdx": "CC0-1.0",
-   "stars": 72741,
-   "forks": 11711,
+   "stars": 73082,
+   "forks": 11854,
    "summary": "Leaked system prompts of ChatGPT, Claude, Gemini and more. The hidden system prompt of every popular chatbot, in full, every version since May 2025. Also Anthropic Claude Code, OpenAI Codex, Google Antigravity, xAI Grok, Meta Muse, Moonshot Kimi, Alibaba Qwen, Z.ai GLM ZCode, MiniMax, Cursor, Perplexity, DeepSeek and 30+ others. Updated daily.",
    "latest_version": null,
    "latest_release_at": null,
@@ -3218,22 +3219,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 72,
-   "gain_7d": 675,
+   "gain": 341,
+   "gain_7d": 816,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    603
+    475
    ]
   },
   {
    "full_name": "microsoft/AI-For-Beginners",
    "lang": "Jupyter Notebook",
    "license_spdx": "MIT",
-   "stars": 71291,
-   "forks": 13884,
+   "stars": 71319,
+   "forks": 13889,
    "summary": "12 Weeks, 24 Lessons, AI for All!",
    "latest_version": null,
    "latest_release_at": null,
@@ -3253,26 +3254,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 21,
-   "gain_7d": 261,
+   "gain": 28,
+   "gain_7d": 260,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    240
+    232
    ]
   },
   {
    "full_name": "code-yeongyu/oh-my-openagent",
    "lang": "TypeScript",
    "license_spdx": null,
-   "stars": 71151,
-   "forks": 5842,
+   "stars": 71160,
+   "forks": 5841,
    "summary": "OmO: Just type \"mass ulw\" keyword with your prompt. Now you are the master of graph engineering.",
    "latest_version": "v5.1.84",
    "latest_release_at": "2026-11-26T15:59:30Z",
-   "repo_updated_at": "2026-11-27T07:50:07Z",
+   "repo_updated_at": "2026-11-28T07:32:29Z",
    "topics": [
     "ai",
     "ai-agents",
@@ -3293,8 +3294,8 @@ window.RADAR_DATA = {
    "homepage": "https://omo.dev",
    "archived": false,
    "is_new": false,
-   "gain": 24,
-   "gain_7d": 139,
+   "gain": 9,
+   "gain_7d": 124,
    "gain_30d": 0,
    "weekly": [
     0,
@@ -3307,12 +3308,12 @@ window.RADAR_DATA = {
    "full_name": "docling-project/docling",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 71132,
-   "forks": 5452,
+   "stars": 71158,
+   "forks": 5465,
    "summary": "Get your documents ready for gen AI",
    "latest_version": "v2.154.0",
    "latest_release_at": "2026-11-26T16:28:04Z",
-   "repo_updated_at": "2026-11-27T07:57:39Z",
+   "repo_updated_at": "2026-11-27T16:45:19Z",
    "topics": [
     "ai",
     "convert",
@@ -3333,26 +3334,26 @@ window.RADAR_DATA = {
    "homepage": "https://docling-project.github.io/docling",
    "archived": false,
    "is_new": false,
-   "gain": 46,
-   "gain_7d": 328,
+   "gain": 26,
+   "gain_7d": 325,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    282
+    299
    ]
   },
   {
    "full_name": "mem0ai/mem0",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 69527,
-   "forks": 8281,
+   "stars": 69570,
+   "forks": 8289,
    "summary": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for production.",
    "latest_version": "ts-v3.3.1",
    "latest_release_at": "2026-09-25T17:36:35Z",
-   "repo_updated_at": "2026-11-25T10:59:52Z",
+   "repo_updated_at": "2026-11-27T15:43:44Z",
    "topics": [
     "agentic-memory",
     "agentic-memory-system",
@@ -3372,26 +3373,26 @@ window.RADAR_DATA = {
    "homepage": "https://mem0.ai",
    "archived": false,
    "is_new": false,
-   "gain": 35,
-   "gain_7d": 265,
+   "gain": 43,
+   "gain_7d": 278,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    230
+    235
    ]
   },
   {
    "full_name": "shanraisshan/claude-code-best-practice",
    "lang": "HTML",
    "license_spdx": "MIT",
-   "stars": 69450,
-   "forks": 6892,
+   "stars": 69471,
+   "forks": 6891,
    "summary": "from vibe coding to agentic engineering - practice makes claude perfect",
    "latest_version": null,
    "latest_release_at": null,
-   "repo_updated_at": "2026-11-27T06:34:15Z",
+   "repo_updated_at": "2026-11-28T06:34:38Z",
    "topics": [
     "agentic-ai",
     "agentic-coding",
@@ -3417,22 +3418,22 @@ window.RADAR_DATA = {
    "homepage": "https://linkedin.com/in/shanraisshan",
    "archived": false,
    "is_new": false,
-   "gain": 29,
-   "gain_7d": 205,
+   "gain": 21,
+   "gain_7d": 195,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    176
+    174
    ]
   },
   {
    "full_name": "Mintplex-Labs/anything-llm",
    "lang": "JavaScript",
    "license_spdx": "MIT",
-   "stars": 68688,
-   "forks": 7760,
+   "stars": 68713,
+   "forks": 7770,
    "summary": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
    "latest_version": "v1.20.0",
    "latest_release_at": "2026-11-17T20:38:19Z",
@@ -3457,26 +3458,26 @@ window.RADAR_DATA = {
    "homepage": "https://anythingllm.com",
    "archived": false,
    "is_new": false,
-   "gain": 31,
-   "gain_7d": 235,
+   "gain": 25,
+   "gain_7d": 238,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    204
+    213
    ]
   },
   {
    "full_name": "upstash/context7",
    "lang": "TypeScript",
    "license_spdx": "MIT",
-   "stars": 65532,
-   "forks": 3272,
+   "stars": 65562,
+   "forks": 3278,
    "summary": "Context7 Platform -- Up-to-date docs for AI agents",
-   "latest_version": "@upstash/context7-mcp@4.9.0",
-   "latest_release_at": "2026-11-26T15:39:26Z",
-   "repo_updated_at": "2026-11-27T08:10:52Z",
+   "latest_version": "@upstash/context7-mcp@4.9.1",
+   "latest_release_at": "2026-11-27T08:36:51Z",
+   "repo_updated_at": "2026-11-28T07:06:47Z",
    "topics": [
     "llm",
     "mcp",
@@ -3486,26 +3487,26 @@ window.RADAR_DATA = {
    "homepage": "https://context7.com",
    "archived": false,
    "is_new": false,
-   "gain": 46,
-   "gain_7d": 380,
+   "gain": 30,
+   "gain_7d": 360,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    334
+    330
    ]
   },
   {
    "full_name": "BerriAI/litellm",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 63996,
-   "forks": 13610,
+   "stars": 64054,
+   "forks": 13638,
    "summary": "The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]",
    "latest_version": "v1.111.0",
    "latest_release_at": "2026-11-25T01:42:50Z",
-   "repo_updated_at": "2026-11-27T08:10:30Z",
+   "repo_updated_at": "2026-11-28T07:25:23Z",
    "topics": [
     "ai-gateway",
     "anthropic",
@@ -3527,22 +3528,22 @@ window.RADAR_DATA = {
    "homepage": "https://docs.litellm.ai/docs/",
    "archived": false,
    "is_new": false,
-   "gain": 63,
-   "gain_7d": 410,
+   "gain": 58,
+   "gain_7d": 417,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    347
+    359
    ]
   },
   {
    "full_name": "sansan0/TrendRadar",
    "lang": "TypeScript",
    "license_spdx": "GPL-3.0",
-   "stars": 63911,
-   "forks": 24949,
+   "stars": 63927,
+   "forks": 24947,
    "summary": "⭐AI-driven public opinion & trend monitor with multi-platform aggregation, RSS, web search, MCP & smart alerts.🎯 告别信息过载，你的 AI     舆情监控助手与热点筛选工具！聚合多平台热点 + RSS 订阅 + 定时联网搜索，支持关键词与 AI 智能筛选。AI 翻译 + AI 分析简报直推手机，支持接入 MCP     架构，赋能 AI 自然语言对话分析、实时检索、情感洞察与趋势预测。支持 Docker，数据本地/云端自持。集成微信/飞书/钉钉/Telegram/邮件/ntfy/Bark/Slack     等渠道智能推送。",
    "latest_version": null,
    "latest_release_at": null,
@@ -3572,26 +3573,26 @@ window.RADAR_DATA = {
    "homepage": "https://sansan0.github.io/TrendRadar/",
    "archived": false,
    "is_new": false,
-   "gain": 20,
-   "gain_7d": 163,
+   "gain": 16,
+   "gain_7d": 164,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    143
+    148
    ]
   },
   {
    "full_name": "HKUDS/DeepTutor",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 63558,
-   "forks": 7665,
+   "stars": 63890,
+   "forks": 7700,
    "summary": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
    "latest_version": "v1.7.4",
    "latest_release_at": "2026-11-20T09:35:43Z",
-   "repo_updated_at": "2026-11-27T08:11:10Z",
+   "repo_updated_at": "2026-11-28T05:51:06Z",
    "topics": [
     "ai-agents",
     "ai-tutor",
@@ -3606,22 +3607,22 @@ window.RADAR_DATA = {
    "homepage": "http://arxiv.org/abs/2604.26962",
    "archived": false,
    "is_new": false,
-   "gain": 609,
-   "gain_7d": 2648,
+   "gain": 332,
+   "gain_7d": 2717,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    2039
+    2385
    ]
   },
   {
    "full_name": "coreyhaines31/marketingskills",
    "lang": "JavaScript",
    "license_spdx": "MIT",
-   "stars": 62921,
-   "forks": 9189,
+   "stars": 63075,
+   "forks": 9218,
    "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
    "latest_version": "v2.14.29",
    "latest_release_at": "2026-11-26T17:50:51Z",
@@ -3651,26 +3652,26 @@ window.RADAR_DATA = {
    "homepage": "https://marketing-skills.com",
    "archived": false,
    "is_new": false,
-   "gain": 203,
-   "gain_7d": 1347,
+   "gain": 154,
+   "gain_7d": 1305,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1144
+    1151
    ]
   },
   {
    "full_name": "jamiepine/voicebox",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 61365,
-   "forks": 7746,
+   "stars": 61426,
+   "forks": 7757,
    "summary": "The open-source AI voice studio. Clone, dictate, create.",
-   "latest_version": "v0.6.0",
-   "latest_release_at": "2026-11-21T11:17:49Z",
-   "repo_updated_at": "2026-11-25T07:07:17Z",
+   "latest_version": "v0.6.1",
+   "latest_release_at": "2026-11-27T10:49:19Z",
+   "repo_updated_at": "2026-11-27T12:34:25Z",
    "topics": [
     "ai",
     "cuda",
@@ -3684,26 +3685,26 @@ window.RADAR_DATA = {
    "homepage": "https://voicebox.sh",
    "archived": false,
    "is_new": false,
-   "gain": 30,
-   "gain_7d": 399,
+   "gain": 61,
+   "gain_7d": 415,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    369
+    354
    ]
   },
   {
    "full_name": "crewAIInc/crewAI",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 61315,
-   "forks": 9301,
+   "stars": 61336,
+   "forks": 9313,
    "summary": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
    "latest_version": "1.15.45",
    "latest_release_at": "2026-11-24T03:54:54Z",
-   "repo_updated_at": "2026-11-26T02:09:07Z",
+   "repo_updated_at": "2026-11-28T03:07:52Z",
    "topics": [
     "agents",
     "ai",
@@ -3714,22 +3715,22 @@ window.RADAR_DATA = {
    "homepage": "https://crewai.com",
    "archived": false,
    "is_new": false,
-   "gain": 31,
-   "gain_7d": 197,
+   "gain": 21,
+   "gain_7d": 201,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    166
+    180
    ]
   },
   {
    "full_name": "MemPalace/mempalace",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 60734,
-   "forks": 7663,
+   "stars": 60746,
+   "forks": 7667,
    "summary": "The best-benchmarked open-source AI memory system. And it's free.",
    "latest_version": "v3.12.0",
    "latest_release_at": "2026-11-12T10:24:35Z",
@@ -3745,26 +3746,26 @@ window.RADAR_DATA = {
    "homepage": "http://mempalaceofficial.com/",
    "archived": false,
    "is_new": false,
-   "gain": 24,
-   "gain_7d": 100,
+   "gain": 12,
+   "gain_7d": 101,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    76
+    89
    ]
   },
   {
    "full_name": "bojieli/ai-agent-book",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 60066,
-   "forks": 7060,
+   "stars": 60142,
+   "forks": 7070,
    "summary": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
    "latest_version": "v3.1",
    "latest_release_at": "2026-11-22T15:45:06Z",
-   "repo_updated_at": "2026-11-25T07:37:28Z",
+   "repo_updated_at": "2026-11-28T07:19:04Z",
    "topics": [
     "agent",
     "agent-memory",
@@ -3783,21 +3784,21 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 92,
-   "gain_7d": 1193,
+   "gain": 76,
+   "gain_7d": 1192,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1101
+    1116
    ]
   },
   {
    "full_name": "meilisearch/meilisearch",
    "lang": "Rust",
    "license_spdx": null,
-   "stars": 60022,
+   "stars": 60029,
    "forks": 2803,
    "summary": "A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.",
    "latest_version": "v1.58.0",
@@ -3828,26 +3829,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.meilisearch.com",
    "archived": false,
    "is_new": false,
-   "gain": 9,
-   "gain_7d": 88,
+   "gain": 7,
+   "gain_7d": 80,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    79
+    73
    ]
   },
   {
    "full_name": "ChromeDevTools/chrome-devtools-mcp",
    "lang": "TypeScript",
    "license_spdx": "Apache-2.0",
-   "stars": 59543,
-   "forks": 4901,
+   "stars": 59657,
+   "forks": 4849,
    "summary": "Chrome DevTools for coding agents",
    "latest_version": "chrome-devtools-mcp-v1.14.0",
    "latest_release_at": "2026-11-24T14:59:19Z",
-   "repo_updated_at": "2026-11-27T05:12:45Z",
+   "repo_updated_at": "2026-11-27T14:34:29Z",
    "topics": [
     "browser",
     "chrome",
@@ -3861,26 +3862,26 @@ window.RADAR_DATA = {
    "homepage": "https://developer.chrome.com/docs/devtools/agents",
    "archived": false,
    "is_new": false,
-   "gain": 136,
-   "gain_7d": 1129,
+   "gain": 114,
+   "gain_7d": 1076,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    993
+    962
    ]
   },
   {
    "full_name": "hesreallyhim/awesome-claude-code",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 58897,
-   "forks": 5023,
+   "stars": 58956,
+   "forks": 5024,
    "summary": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC (no affiliation). A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
    "latest_version": null,
    "latest_release_at": null,
-   "repo_updated_at": "2026-11-27T06:11:44Z",
+   "repo_updated_at": "2026-11-28T06:10:10Z",
    "topics": [
     "agent-skills",
     "agentic-code",
@@ -3905,21 +3906,21 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 64,
-   "gain_7d": 497,
+   "gain": 59,
+   "gain_7d": 473,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    433
+    414
    ]
   },
   {
    "full_name": "pathwaycom/serviette",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 58672,
+   "stars": 58666,
    "forks": 1538,
    "summary": "A no-code RAG server that keeps answers in sync with your documents. Works with 8 vector databases. Built on Pathway.",
    "latest_version": "v0.1.8",
@@ -3964,8 +3965,8 @@ window.RADAR_DATA = {
    "full_name": "zylon-ai/private-gpt",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 57664,
-   "forks": 7631,
+   "stars": 57666,
+   "forks": 7632,
    "summary": "Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more. Works with any OpenAI-compatible inference server.",
    "latest_version": "v1.0.1",
    "latest_release_at": "2026-06-18T13:56:00Z",
@@ -3978,26 +3979,26 @@ window.RADAR_DATA = {
    "homepage": "https://www.zylon.ai/private-gpt",
    "archived": false,
    "is_new": false,
-   "gain": 5,
-   "gain_7d": 18,
+   "gain": 2,
+   "gain_7d": 22,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    13
+    20
    ]
   },
   {
    "full_name": "aaif-goose/goose",
    "lang": "Rust",
    "license_spdx": "Apache-2.0",
-   "stars": 57054,
-   "forks": 6681,
+   "stars": 57089,
+   "forks": 6683,
    "summary": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
    "latest_version": "v1.61.1",
    "latest_release_at": "2026-11-26T00:09:20Z",
-   "repo_updated_at": "2026-11-26T23:09:49Z",
+   "repo_updated_at": "2026-11-27T17:32:56Z",
    "topics": [
     "acp",
     "ai",
@@ -4007,22 +4008,22 @@ window.RADAR_DATA = {
    "homepage": "https://goose-docs.ai/",
    "archived": false,
    "is_new": false,
-   "gain": 37,
+   "gain": 35,
    "gain_7d": 249,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    212
+    214
    ]
   },
   {
    "full_name": "alibaba/open-code-review",
    "lang": "Go",
    "license_spdx": "Apache-2.0",
-   "stars": 56738,
-   "forks": 4697,
+   "stars": 56965,
+   "forks": 4710,
    "summary": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
    "latest_version": "v1.14.4",
    "latest_release_at": "2026-11-26T02:35:15Z",
@@ -4038,26 +4039,26 @@ window.RADAR_DATA = {
    "homepage": "https://open-codereview.ai",
    "archived": false,
    "is_new": false,
-   "gain": 292,
-   "gain_7d": 2265,
+   "gain": 227,
+   "gain_7d": 2095,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1973
+    1868
    ]
   },
   {
    "full_name": "bmad-code-org/BMAD-METHOD",
    "lang": "Python",
    "license_spdx": null,
-   "stars": 55808,
-   "forks": 6212,
+   "stars": 55847,
+   "forks": 6210,
    "summary": "Breakthrough Method for Agile Ai Driven Development",
    "latest_version": "v6.12.4",
    "latest_release_at": "2026-10-14T21:19:19Z",
-   "repo_updated_at": "2026-11-27T06:39:31Z",
+   "repo_updated_at": "2026-11-28T06:31:10Z",
    "topics": [
     "agile",
     "ai",
@@ -4068,26 +4069,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 43,
-   "gain_7d": 247,
+   "gain": 39,
+   "gain_7d": 263,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    204
+    224
    ]
   },
   {
    "full_name": "CherryHQ/cherry-studio",
    "lang": "TypeScript",
    "license_spdx": "AGPL-3.0",
-   "stars": 53923,
-   "forks": 5278,
+   "stars": 53937,
+   "forks": 5277,
    "summary": "Your AI workspace for models, agents, and productivity.",
    "latest_version": "v2.2.3",
    "latest_release_at": "2026-11-19T15:07:11Z",
-   "repo_updated_at": "2026-11-27T08:11:33Z",
+   "repo_updated_at": "2026-11-28T07:34:06Z",
    "topics": [
     "agent-skills",
     "agent-workspace",
@@ -4106,21 +4107,21 @@ window.RADAR_DATA = {
    "homepage": "https://cherryai.com",
    "archived": false,
    "is_new": false,
-   "gain": 32,
-   "gain_7d": 248,
+   "gain": 14,
+   "gain_7d": 231,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    216
+    217
    ]
   },
   {
    "full_name": "elder-plinius/CL4R1T4S",
    "lang": null,
    "license_spdx": "AGPL-3.0",
-   "stars": 53862,
+   "stars": 53873,
    "forks": 11242,
    "summary": "LEAKED SYSTEM PROMPTS FOR CHATGPT, CLAUDE, GEMINI, GROK, PERPLEXITY, CURSOR, LOVABLE, REPLIT, AND MORE! - AI SYSTEMS TRANSPARENCY FOR ALL! 👐",
    "latest_version": null,
@@ -4151,22 +4152,22 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 21,
-   "gain_7d": 161,
+   "gain": 11,
+   "gain_7d": 152,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    140
+    141
    ]
   },
   {
    "full_name": "upscayl/upscayl",
    "lang": "TypeScript",
    "license_spdx": "AGPL-3.0",
-   "stars": 53310,
-   "forks": 2833,
+   "stars": 53351,
+   "forks": 2835,
    "summary": "🆙 Upscayl - #1 Free and Open Source AI Image Upscaler for Linux, MacOS and Windows.",
    "latest_version": "v2.15.0",
    "latest_release_at": "2024-12-25T13:44:34Z",
@@ -4187,22 +4188,22 @@ window.RADAR_DATA = {
    "homepage": "https://upscayl.org",
    "archived": false,
    "is_new": false,
-   "gain": 61,
-   "gain_7d": 355,
+   "gain": 41,
+   "gain_7d": 352,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    294
+    311
    ]
   },
   {
    "full_name": "herdrdev/herdr",
    "lang": "Rust",
    "license_spdx": "Apache-2.0",
-   "stars": 53127,
-   "forks": 4293,
+   "stars": 53327,
+   "forks": 4298,
    "summary": "the runtime your coding agents live on",
    "latest_version": "v0.9.5",
    "latest_release_at": "2026-10-14T16:07:28Z",
@@ -4230,22 +4231,22 @@ window.RADAR_DATA = {
    "homepage": "https://herdr.dev",
    "archived": false,
    "is_new": false,
-   "gain": 180,
-   "gain_7d": 1179,
+   "gain": 200,
+   "gain_7d": 1224,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    999
+    1024
    ]
   },
   {
    "full_name": "run-llama/llama_index",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 53021,
-   "forks": 8650,
+   "stars": 53031,
+   "forks": 8660,
    "summary": "LlamaIndex is the document processing platform for AI",
    "latest_version": "v0.14.26",
    "latest_release_at": "2026-11-13T22:38:15Z",
@@ -4265,8 +4266,8 @@ window.RADAR_DATA = {
    "homepage": "https://developers.llamaindex.ai",
    "archived": false,
    "is_new": false,
-   "gain": 7,
-   "gain_7d": 55,
+   "gain": 10,
+   "gain_7d": 58,
    "gain_30d": 0,
    "weekly": [
     0,
@@ -4279,12 +4280,12 @@ window.RADAR_DATA = {
    "full_name": "dbeaver/dbeaver",
    "lang": "Java",
    "license_spdx": "Apache-2.0",
-   "stars": 52549,
-   "forks": 4473,
+   "stars": 52560,
+   "forks": 4477,
    "summary": "Free universal database tool and SQL client",
    "latest_version": "26.2.5.2",
    "latest_release_at": "2026-11-24T15:37:31Z",
-   "repo_updated_at": "2026-11-27T07:23:54Z",
+   "repo_updated_at": "2026-11-28T07:24:27Z",
    "topics": [
     "ai",
     "database",
@@ -4308,26 +4309,26 @@ window.RADAR_DATA = {
    "homepage": "https://dbeaver.io",
    "archived": false,
    "is_new": false,
-   "gain": 6,
-   "gain_7d": 61,
+   "gain": 11,
+   "gain_7d": 60,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    55
+    49
    ]
   },
   {
    "full_name": "ClickHouse/ClickHouse",
    "lang": "C++",
    "license_spdx": "Apache-2.0",
-   "stars": 51182,
+   "stars": 51207,
    "forks": 9340,
    "summary": "ClickHouse® is a real-time analytics database management system",
-   "latest_version": "v26.9.40.9-stable",
-   "latest_release_at": "2026-11-26T17:43:23Z",
-   "repo_updated_at": "2026-11-27T08:07:38Z",
+   "latest_version": "v26.9.41.4-stable",
+   "latest_release_at": "2026-11-27T17:14:24Z",
+   "repo_updated_at": "2026-11-28T07:31:41Z",
    "topics": [
     "ai",
     "analytics",
@@ -4350,26 +4351,26 @@ window.RADAR_DATA = {
    "homepage": "https://clickhouse.com",
    "archived": false,
    "is_new": false,
-   "gain": 31,
-   "gain_7d": 148,
+   "gain": 25,
+   "gain_7d": 156,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    117
+    131
    ]
   },
   {
    "full_name": "huginn/huginn",
    "lang": "Ruby",
    "license_spdx": "MIT",
-   "stars": 50654,
-   "forks": 4365,
+   "stars": 50657,
+   "forks": 4366,
    "summary": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
    "latest_version": "v2026.11.27",
    "latest_release_at": "2026-11-26T19:53:37Z",
-   "repo_updated_at": "2026-11-27T00:19:53Z",
+   "repo_updated_at": "2026-11-28T03:47:19Z",
    "topics": [
     "agent",
     "automation",
@@ -4385,26 +4386,26 @@ window.RADAR_DATA = {
    "homepage": null,
    "archived": false,
    "is_new": false,
-   "gain": 9,
-   "gain_7d": 61,
+   "gain": 3,
+   "gain_7d": 56,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    52
+    53
    ]
   },
   {
    "full_name": "mudler/LocalAI",
    "lang": "Go",
    "license_spdx": "MIT",
-   "stars": 50574,
-   "forks": 4653,
+   "stars": 50595,
+   "forks": 4658,
    "summary": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
    "latest_version": "v5.0.1",
    "latest_release_at": "2026-11-20T17:03:10Z",
-   "repo_updated_at": "2026-11-27T08:10:05Z",
+   "repo_updated_at": "2026-11-28T00:30:42Z",
    "topics": [
     "agents",
     "ai",
@@ -4427,26 +4428,26 @@ window.RADAR_DATA = {
    "homepage": "https://localai.io",
    "archived": false,
    "is_new": false,
-   "gain": 20,
-   "gain_7d": 115,
+   "gain": 21,
+   "gain_7d": 113,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    95
+    92
    ]
   },
   {
    "full_name": "sickn33/agentic-awesome-skills",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 50421,
-   "forks": 7314,
+   "stars": 50458,
+   "forks": 7315,
    "summary": "3,000+ reusable AI agent skills for Claude Code, Codex, Cursor and Gemini CLI. AAS Core adds local catalog discovery, agent-owned selection and plan preview. CLI, MCP and plugins.",
    "latest_version": "v21.4.0",
    "latest_release_at": "2026-11-26T19:07:30Z",
-   "repo_updated_at": "2026-11-26T18:59:39Z",
+   "repo_updated_at": "2026-11-28T01:36:10Z",
    "topics": [
     "agent-skills",
     "agentic-skills",
@@ -4472,26 +4473,26 @@ window.RADAR_DATA = {
    "homepage": "https://aaskills.tech/",
    "archived": false,
    "is_new": false,
-   "gain": 67,
-   "gain_7d": 409,
+   "gain": 37,
+   "gain_7d": 397,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    342
+    360
    ]
   },
   {
    "full_name": "HKUDS/nanobot",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 50380,
-   "forks": 8777,
+   "stars": 50409,
+   "forks": 8783,
    "summary": "Your lightweight open-source personal agent.",
    "latest_version": "v0.4.2",
    "latest_release_at": "2026-11-21T13:21:17Z",
-   "repo_updated_at": "2026-11-27T07:25:41Z",
+   "repo_updated_at": "2026-11-27T17:20:56Z",
    "topics": [
     "agent-framework",
     "ai-agent",
@@ -4517,26 +4518,26 @@ window.RADAR_DATA = {
    "homepage": "https://nanobot.wiki",
    "archived": false,
    "is_new": false,
-   "gain": 31,
-   "gain_7d": 155,
+   "gain": 29,
+   "gain_7d": 163,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    124
+    134
    ]
   },
   {
    "full_name": "DeusData/codebase-memory-mcp",
    "lang": "C",
    "license_spdx": "MIT",
-   "stars": 49234,
-   "forks": 4098,
+   "stars": 49266,
+   "forks": 4100,
    "summary": "Local code intelligence for developers and AI agents. Connect code, docs and infrastructure in a persistent graph, with CBM Lens, MCP tools, agent integrations and change-aware test selection.",
    "latest_version": "v0.12.1",
    "latest_release_at": "2026-10-16T23:35:48Z",
-   "repo_updated_at": "2026-11-27T06:25:27Z",
+   "repo_updated_at": "2026-11-28T05:43:55Z",
    "topics": [
     "aider",
     "ast",
@@ -4562,26 +4563,26 @@ window.RADAR_DATA = {
    "homepage": "https://deusdata.github.io/codebase-memory-mcp/",
    "archived": false,
    "is_new": false,
-   "gain": 51,
-   "gain_7d": 332,
+   "gain": 32,
+   "gain_7d": 312,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    281
+    280
    ]
   },
   {
    "full_name": "paperless-ngx/paperless-ngx",
    "lang": "Python",
    "license_spdx": "GPL-3.0",
-   "stars": 48689,
-   "forks": 3447,
+   "stars": 48730,
+   "forks": 3453,
    "summary": "A community-supported supercharged document management system: scan, index and archive all your documents",
    "latest_version": "v3.5.1",
    "latest_release_at": "2026-11-18T05:22:01Z",
-   "repo_updated_at": "2026-11-27T04:58:32Z",
+   "repo_updated_at": "2026-11-28T02:55:56Z",
    "topics": [
     "ai",
     "angular",
@@ -4599,22 +4600,22 @@ window.RADAR_DATA = {
    "homepage": "http://docs.paperless-ngx.com/",
    "archived": false,
    "is_new": false,
-   "gain": 43,
-   "gain_7d": 323,
+   "gain": 41,
+   "gain_7d": 310,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    280
+    269
    ]
   },
   {
    "full_name": "jeecgboot/JeecgBoot",
    "lang": "Java",
    "license_spdx": "Apache-2.0",
-   "stars": 48643,
-   "forks": 16215,
+   "stars": 48653,
+   "forks": 16214,
    "summary": "一款免费开源的 AI 低代码平台，也是 AI 时代构建复杂业务系统的开源基座！权限、多租户、工作流、报表、大屏、AI 知识库等通用能力开箱即用，AI 只需生成业务差异部分。AI Skills 一句话生成完整系统——建表、前后端代码、菜单权限、BPM 流程、表单、报表、大屏全自动。内置 AI 应用平台（聊天、知识库、流程编排、MCP），兼容主流大模型",
    "latest_version": "v3.9.6",
    "latest_release_at": "2026-11-05T14:34:42Z",
@@ -4644,26 +4645,26 @@ window.RADAR_DATA = {
    "homepage": "https://jeecg.com",
    "archived": false,
    "is_new": false,
-   "gain": 6,
-   "gain_7d": 107,
+   "gain": 10,
+   "gain_7d": 96,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    101
+    86
    ]
   },
   {
    "full_name": "anthropics/claude-plugins-official",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 48400,
-   "forks": 5073,
+   "stars": 48497,
+   "forks": 5090,
    "summary": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
    "latest_version": null,
    "latest_release_at": null,
-   "repo_updated_at": "2026-11-27T06:00:28Z",
+   "repo_updated_at": "2026-11-28T07:28:52Z",
    "topics": [
     "claude-code",
     "mcp",
@@ -4672,26 +4673,26 @@ window.RADAR_DATA = {
    "homepage": "https://code.claude.com/docs/en/plugins",
    "archived": false,
    "is_new": false,
-   "gain": 151,
-   "gain_7d": 652,
+   "gain": 97,
+   "gain_7d": 640,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    501
+    543
    ]
   },
   {
    "full_name": "zhayujie/CowAgent",
    "lang": "Python",
    "license_spdx": "MIT",
-   "stars": 48103,
-   "forks": 10453,
+   "stars": 48118,
+   "forks": 10451,
    "summary": "Open-source personal AI assistant & Agent Harness. Plans tasks, runs tools and skills, self-evolves with memory and knowledge. Multi-agent, multi-model, multi-channel. Lightweight, extensible, one-line install.",
    "latest_version": "2.3.0",
    "latest_release_at": "2026-11-26T02:18:46Z",
-   "repo_updated_at": "2026-11-27T03:44:53Z",
+   "repo_updated_at": "2026-11-27T11:09:50Z",
    "topics": [
     "ai",
     "ai-agent",
@@ -4714,113 +4715,26 @@ window.RADAR_DATA = {
    "homepage": "https://cowagent.ai",
    "archived": false,
    "is_new": false,
-   "gain": 19,
-   "gain_7d": 85,
+   "gain": 15,
+   "gain_7d": 91,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    66
-   ]
-  },
-  {
-   "full_name": "AstrBotDevs/AstrBot",
-   "lang": "Python",
-   "license_spdx": "AGPL-3.0",
-   "stars": 47620,
-   "forks": 3684,
-   "summary": "AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
-   "latest_version": "v4.30.0-beta.2",
-   "latest_release_at": "2026-11-26T10:06:13Z",
-   "repo_updated_at": "2026-11-27T06:10:29Z",
-   "topics": [
-    "agent",
-    "ai",
-    "astrbot",
-    "chatbot",
-    "chatgpt",
-    "discord",
-    "docker",
-    "gemini",
-    "gpt",
-    "llama",
-    "llm",
-    "mcp",
-    "openai",
-    "python",
-    "qq",
-    "qqbot",
-    "telegram"
-   ],
-   "homepage": "https://astrbot.app",
-   "archived": false,
-   "is_new": false,
-   "gain": 99,
-   "gain_7d": 390,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    291
-   ]
-  },
-  {
-   "full_name": "LibreChat-AI/LibreChat",
-   "lang": "TypeScript",
-   "license_spdx": "MIT",
-   "stars": 47576,
-   "forks": 9820,
-   "summary": "Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active",
-   "latest_version": null,
-   "latest_release_at": null,
-   "repo_updated_at": "2026-11-27T08:01:51Z",
-   "topics": [
-    "ai",
-    "anthropic",
-    "artifacts",
-    "aws",
-    "azure",
-    "chatgpt",
-    "chatgpt-clone",
-    "claude",
-    "clone",
-    "deepseek",
-    "gemini",
-    "google",
-    "gpt-5",
-    "librechat",
-    "mcp",
-    "o1",
-    "openai",
-    "responses-api",
-    "vision",
-    "webui"
-   ],
-   "homepage": "https://librechat.ai/",
-   "archived": false,
-   "is_new": false,
-   "gain": 36,
-   "gain_7d": 216,
-   "gain_30d": 0,
-   "weekly": [
-    0,
-    0,
-    0,
-    180
+    76
    ]
   },
   {
    "full_name": "ifixai-ai/iFixAi",
    "lang": "Python",
    "license_spdx": "Apache-2.0",
-   "stars": 47536,
-   "forks": 1841,
+   "stars": 47779,
+   "forks": 1844,
    "summary": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
    "latest_version": "v4.4.0",
    "latest_release_at": "2026-11-20T04:51:45Z",
-   "repo_updated_at": "2026-11-23T21:48:09Z",
+   "repo_updated_at": "2026-11-27T22:15:40Z",
    "topics": [
     "agent-evaluation",
     "ai",
@@ -4846,26 +4760,113 @@ window.RADAR_DATA = {
    "homepage": "https://www.ifixai.ai",
    "archived": false,
    "is_new": false,
-   "gain": 151,
-   "gain_7d": 1344,
+   "gain": 243,
+   "gain_7d": 1299,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    1193
+    1056
+   ]
+  },
+  {
+   "full_name": "AstrBotDevs/AstrBot",
+   "lang": "Python",
+   "license_spdx": "AGPL-3.0",
+   "stars": 47669,
+   "forks": 3694,
+   "summary": "AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+   "latest_version": "v4.30.0-beta.2",
+   "latest_release_at": "2026-11-26T10:06:13Z",
+   "repo_updated_at": "2026-11-28T06:35:51Z",
+   "topics": [
+    "agent",
+    "ai",
+    "astrbot",
+    "chatbot",
+    "chatgpt",
+    "discord",
+    "docker",
+    "gemini",
+    "gpt",
+    "llama",
+    "llm",
+    "mcp",
+    "openai",
+    "python",
+    "qq",
+    "qqbot",
+    "telegram"
+   ],
+   "homepage": "https://astrbot.app",
+   "archived": false,
+   "is_new": false,
+   "gain": 49,
+   "gain_7d": 387,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    338
+   ]
+  },
+  {
+   "full_name": "LibreChat-AI/LibreChat",
+   "lang": "TypeScript",
+   "license_spdx": "MIT",
+   "stars": 47600,
+   "forks": 9821,
+   "summary": "Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active",
+   "latest_version": null,
+   "latest_release_at": null,
+   "repo_updated_at": "2026-11-28T07:24:46Z",
+   "topics": [
+    "ai",
+    "anthropic",
+    "artifacts",
+    "aws",
+    "azure",
+    "chatgpt",
+    "chatgpt-clone",
+    "claude",
+    "clone",
+    "deepseek",
+    "gemini",
+    "google",
+    "gpt-5",
+    "librechat",
+    "mcp",
+    "o1",
+    "openai",
+    "responses-api",
+    "vision",
+    "webui"
+   ],
+   "homepage": "https://librechat.ai/",
+   "archived": false,
+   "is_new": false,
+   "gain": 24,
+   "gain_7d": 224,
+   "gain_30d": 0,
+   "weekly": [
+    0,
+    0,
+    0,
+    200
    ]
   },
   {
    "full_name": "siyuan-note/siyuan",
    "lang": "TypeScript",
    "license_spdx": "AGPL-3.0",
-   "stars": 47433,
-   "forks": 3137,
+   "stars": 47444,
+   "forks": 3139,
    "summary": "An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
    "latest_version": "v3.8.12",
    "latest_release_at": "2026-11-24T06:56:52Z",
-   "repo_updated_at": "2026-11-27T07:47:58Z",
+   "repo_updated_at": "2026-11-28T06:26:45Z",
    "topics": [
     "agentic-ai",
     "ai-agent",
@@ -4882,26 +4883,26 @@ window.RADAR_DATA = {
    "homepage": "https://b3log.org/siyuan",
    "archived": false,
    "is_new": false,
-   "gain": 30,
-   "gain_7d": 140,
+   "gain": 11,
+   "gain_7d": 129,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    110
+    118
    ]
   },
   {
    "full_name": "milvus-io/milvus",
    "lang": "Go",
    "license_spdx": "Apache-2.0",
-   "stars": 46750,
-   "forks": 4349,
+   "stars": 46753,
+   "forks": 4350,
    "summary": "Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search",
    "latest_version": "v3.0.6",
    "latest_release_at": "2026-11-11T08:06:25Z",
-   "repo_updated_at": "2026-11-27T07:52:11Z",
+   "repo_updated_at": "2026-11-28T06:28:11Z",
    "topics": [
     "anns",
     "cloud-native",
@@ -4925,22 +4926,22 @@ window.RADAR_DATA = {
    "homepage": "https://milvus.io",
    "archived": false,
    "is_new": false,
-   "gain": 5,
-   "gain_7d": 47,
+   "gain": 3,
+   "gain_7d": 43,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    42
+    40
    ]
   },
   {
    "full_name": "janhq/jan",
    "lang": "Rust",
    "license_spdx": null,
-   "stars": 46226,
-   "forks": 3280,
+   "stars": 46252,
+   "forks": 3286,
    "summary": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
    "latest_version": "v0.8.8",
    "latest_release_at": "2026-10-28T03:31:54Z",
@@ -4958,14 +4959,14 @@ window.RADAR_DATA = {
    "homepage": "https://jan.ai/",
    "archived": false,
    "is_new": false,
-   "gain": 57,
-   "gain_7d": 0,
+   "gain": 26,
+   "gain_7d": 280,
    "gain_30d": 0,
    "weekly": [
     0,
     0,
     0,
-    0
+    254
    ]
   }
  ]
